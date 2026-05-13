@@ -1,0 +1,74 @@
+name: "YouTube → Instagram"
+code: "youtube-to-instagram"
+description: "Transforma vídeos do YouTube em 3 posts únicos + 1 carrossel para o Instagram + roteiro YouTube + 5 roteiros Reels da Sucesso Imóvel."
+icon: "🎬"
+version: "2.0.0"
+language: "Português (Brasil)"
+
+company: "_opensquad/_memory/company.md"
+memory: "_memory/memories.md"
+
+skills:
+  - web_search
+  - web_fetch
+  - image-creator
+  - image-ai-generator
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+  - pipeline/data/visual-identity.md
+  - pipeline/data/template-reference.html
+  - _templates/single-post-template.html
+  - _templates/single-post-2-template.html
+  - _templates/single-post-3-template.html
+
+output_structure:
+  posts_per_run: 4
+  post_types:
+    - id: single-post-1
+      name: "Post Único 1 — Dr. Jeorge"
+      template: _templates/single-post-template.html
+      palette: "Roxo/Preto"
+      cta: "Comentar"
+      angle: "Principal — tema central"
+      dimensions: "1080x1350"
+    - id: single-post-2
+      name: "Post Único 2 — Imagem IA"
+      template: _templates/single-post-2-template.html
+      palette: "Carvão/Roxo Claro (#C084FC)"
+      logo: "SI-Logo-Branco-Transp.png"
+      cta: "Deixar like"
+      angle: "Impacto/Consequência"
+      dimensions: "1080x1350"
+    - id: single-post-3
+      name: "Post Único 3 — Só texto"
+      template: _templates/single-post-3-template.html
+      palette: "Branco/Lavanda/Roxo Escuro"
+      logo: "SI-Logo-Color-Transp.png"
+      cta: "Seguir no Instagram"
+      angle: "Reflexão/Princípio"
+      dimensions: "1080x1350"
+    - id: carousel
+      name: "Carrossel"
+      template: pipeline/data/template-reference.html
+      palette: "Premium Dark Roxo"
+      cta: "Comentar palavra-chave"
+      angle: "Tutorial/Aprofundamento"
+      dimensions: "1080x1440"
+
+agents:
+  - id: yago-video
+    file: agents/yago-video.agent.md
+  - id: iago-instagram
+    file: agents/iago-instagram.agent.md
+  - id: diego-design
+    file: agents/diego-design.agent.md
+  - id: renata-revisao
+    file: agents/renata-revisao.agent.md
+
+pipeline: pipeline/pipeline.yaml

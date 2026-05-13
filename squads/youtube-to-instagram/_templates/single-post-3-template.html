@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Post Único 3 — Sucesso Imóvel
+  Versão: 2.1 (2026-05-13) — zonas fixas, tipografia alinhada ao Post 2, CTA prefixado
+  Proporção: 1080×1350px (4:5 — feed Instagram)
+  Paleta: Branco / Lavanda / Roxo escuro — tema CLARO, destaque no feed
+
+  LAYOUT (zonas fixas — nunca se sobrepõem):
+    0–156px    — Header (logo colorido + tag)
+    168–490px  — Headline zone (322px: eyebrow + divider + headline)
+    510–720px  — Quote box (210px: sub-headline de destaque)
+    740–1130px — Content card (390px: body + badge, centralizado)
+    1140–1350px — CTA bar (210px: "Siga nosso perfil:" fixo + {{CTA_TEXT}})
+
+  PLACEHOLDERS:
+    {{LOGO_B64}}   — base64 do SI-Logo-Color-Transp.png (COLORIDO — fundo claro!)
+    {{TAG}}        — ex: "JURÍDICO / STJ"
+    {{EYEBROW}}    — ex: "Para Reflexão"
+    {{HEADLINE}}   — headline principal (suporta <br> e <span class="accent">)
+    {{QUOTE_TEXT}} — frase impactante de destaque (1–2 frases curtas)
+    {{BODY_TEXT}}  — parágrafo explicativo (suporta <span class="accent">)
+    {{BADGE_TEXT}} — ex: "⚖️ Código Civil — Art. 1.196"
+    {{CTA_TEXT}}   — continuação após "Siga nosso perfil:" (ex: "@sucessoimovel")
+
+  REGRAS:
+    - Layout 100% tipográfico — sem foto, sem imagem IA
+    - Logo COLORIDO (não branco) — fundo claro exige logo colorido
+    - CTA sempre inicia com "Siga nosso perfil:" (fixo no HTML)
+    - Quote box é o elemento visual central — frase curta e impactante
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+body { width: 1080px; height: 1350px; overflow: hidden; }
+
+.slide {
+  width: 1080px; height: 1350px;
+  background: linear-gradient(155deg, #FAFAFA 0%, #F3EEFF 50%, #F8F5FF 100%);
+  position: relative; overflow: hidden;
+}
+
+/* Orbes suaves — lavanda */
+.orb { position: absolute; border-radius: 50%; filter: blur(130px); pointer-events: none; }
+.orb-tl { width: 700px; height: 700px; background: #DDD6FE; opacity: 0.55; top: -250px; left: -180px; }
+.orb-br { width: 500px; height: 500px; background: #C4B5FD; opacity: 0.35; bottom: -150px; right: -100px; }
+
+/* Padrão geométrico sutil */
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(109,40,217,0.025) 0px, rgba(109,40,217,0.025) 1px,
+    transparent 1px, transparent 70px
+  );
+}
+
+/* Linha decorativa vertical — marca o início da headline */
+.accent-line {
+  position: absolute; left: 60px; top: 248px;
+  width: 5px; height: 240px;
+  background: linear-gradient(180deg, #7B2FBE 0%, #A855F7 60%, transparent 100%);
+  border-radius: 3px; z-index: 6;
+}
+
+/* ── ZONA 1: HEADER (0–156px) ── */
+.header {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 44px 56px 0; z-index: 20;
+}
+/* Logo centralizado */
+.logo img { height: 112px; }
+/* Tag — posicionada no canto superior direito independente do logo */
+.tag {
+  position: absolute; top: 54px; right: 56px;
+  background: rgba(109,40,217,0.08); border: 1px solid rgba(109,40,217,0.30);
+  color: #6D28D9; font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 600;
+  padding: 13px 30px; border-radius: 100px; z-index: 21;
+}
+
+/* ── ZONA 2: HEADLINE (168–490px, 322px fixos) ── */
+.headline-block {
+  position: absolute; top: 168px; left: 80px; right: 60px;
+  height: 322px; overflow: hidden; z-index: 20;
+}
+/* Eyebrow mesmo tamanho do Post 2 */
+.eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600;
+  color: #7B2FBE; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px;
+}
+.divider {
+  width: 64px; height: 4px;
+  background: linear-gradient(90deg, #5B21B6, #A855F7);
+  border-radius: 2px; margin-bottom: 22px;
+}
+/* Headline mesmo tamanho do Post 2 */
+.headline {
+  font-family: 'Montserrat', sans-serif; font-size: 70px; font-weight: 900;
+  color: #1C1333; line-height: 1.05; letter-spacing: -2px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.headline .accent { color: #7B2FBE; }
+
+/* ── ZONA 3: QUOTE BOX (510–720px, 210px fixos) ── */
+.quote-box {
+  position: absolute; top: 510px; left: 52px; right: 52px;
+  height: 210px; overflow: hidden; z-index: 25;
+  background: rgba(109,40,217,0.06);
+  border: 1px solid rgba(109,40,217,0.18);
+  border-left: 7px solid #7B2FBE;
+  border-radius: 0 20px 20px 0;
+  padding: 32px 52px;
+  display: flex; align-items: center;
+}
+.quote-text {
+  font-family: 'Montserrat', sans-serif; font-size: 44px; font-weight: 900;
+  color: #1C1333; line-height: 1.15; letter-spacing: -0.5px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.quote-text .accent { color: #7B2FBE; }
+.quote-text .accent-light { color: #A855F7; }
+
+/* ── ZONA 4: CONTENT CARD (740–1130px, 390px) ── */
+.content-card {
+  position: absolute; top: 740px; bottom: 220px; left: 52px; right: 52px;
+  z-index: 30;
+  background: rgba(255,255,255,0.80);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(109,40,217,0.15);
+  border-radius: 24px; padding: 36px 52px;
+  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  overflow: hidden;
+}
+/* Body text mesmo tamanho do Post 2 */
+.body-text {
+  font-family: 'Inter', sans-serif; font-size: 39px;
+  font-weight: 500; color: #2D1B4E; line-height: 1.55;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.body-text .accent { color: #7B2FBE; font-weight: 600; }
+/* Badge mesmo tamanho do Post 2 */
+.badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(109,40,217,0.08); border: 1px solid rgba(109,40,217,0.22);
+  color: #4C1D95; font-family: 'Inter', sans-serif;
+  font-size: 28px; font-weight: 600; padding: 13px 28px; border-radius: 100px;
+  flex-shrink: 0; align-self: flex-start;
+}
+
+/* ── ZONA 5: CTA (1140–1350px, 210px) ── */
+.cta-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 210px; z-index: 40;
+  background: linear-gradient(135deg, #4C1D95 0%, #7B2FBE 42%, #5B21B6 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 0 60px; gap: 6px;
+}
+.cta-bar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #DDD6FE 50%, transparent 100%);
+}
+/* Texto fixo "Siga nosso perfil:" */
+.cta-label {
+  font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 600;
+  color: rgba(255,255,255,0.75); letter-spacing: 1px; text-transform: uppercase;
+}
+/* CTA principal (do placeholder) */
+.cta-main {
+  font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 900;
+  color: #FFF; letter-spacing: -0.5px; line-height: 1.05; text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-pattern"></div>
+  <div class="orb orb-tl"></div>
+  <div class="orb orb-br"></div>
+  <div class="accent-line"></div>
+
+  <!-- ZONA 1: Header — logo COLORIDO centralizado -->
+  <div class="header">
+    <div class="logo"><img src="data:image/png;base64,{{LOGO_B64}}" alt="Sucesso Imóvel"></div>
+  </div>
+  <!-- Tag — canto superior direito, independente do logo -->
+  <div class="tag">{{TAG}}</div>
+
+  <!-- ZONA 2: Headline (168–490px, sobre fundo) -->
+  <div class="headline-block">
+    <div class="eyebrow">{{EYEBROW}}</div>
+    <div class="divider"></div>
+    <div class="headline">{{HEADLINE}}</div>
+  </div>
+
+  <!-- ZONA 3: Quote box — sub-headline de destaque (510–720px) -->
+  <div class="quote-box">
+    <div class="quote-text">{{QUOTE_TEXT}}</div>
+  </div>
+
+  <!-- ZONA 4: Card de conteúdo (740–1130px) -->
+  <div class="content-card">
+    <div class="body-text">{{BODY_TEXT}}</div>
+    <div class="badge">{{BADGE_TEXT}}</div>
+  </div>
+
+  <!-- ZONA 5: CTA — "Siga nosso perfil:" fixo + {{CTA_TEXT}} -->
+  <div class="cta-bar">
+    <div class="cta-label">Siga nosso perfil:</div>
+    <div class="cta-main">{{CTA_TEXT}}</div>
+  </div>
+</div>
+</body>
+</html>

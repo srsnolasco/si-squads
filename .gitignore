@@ -1,0 +1,26 @@
+# Outputs gerados pelos squads (posts, roteiros, imagens)
+squads/*/output/
+
+# Assets (logos, fotos, imagens — arquivos grandes e privados)
+assets/
+
+# Variáveis de ambiente (chaves de API)
+.env
+.env.local
+.env.*
+
+# Sessões do browser (cookies de login — privado)
+_opensquad/_browser_profile/
+
+# Snapshots temporários do Playwright
+.playwright-mcp/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Node
+node_modules/
+
+# Logs
+*.log

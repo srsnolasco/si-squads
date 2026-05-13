@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE: Post Único 2 — Sucesso Imóvel
+  Versão: 2.2 (2026-05-13) — tipografia aumentada, headline centralizada e larga, card menor
+  Proporção: 1080×1350px (4:5 — feed Instagram)
+  Paleta: Carvão / Roxo Claro (#111118, #C084FC)
+
+  LAYOUT (zonas fixas):
+    0–560px    — AI Image hero (fade inferior de 280px)
+    0–156px    — Header (logo + tag) z-index 20
+    180–460px  — Headline zone (280px, sobre a imagem) z-index 20
+    650–1050px — Content card (400px, centrado vert. entre 560–1140px) z-index 30
+    1140–1350px — CTA bar (210px) z-index 40
+
+  PLACEHOLDERS:
+    {{LOGO_B64}}       — base64 do SI-Logo-Branco-Transp.png
+    {{AI_IMAGE_B64}}   — base64 da imagem gerada por IA
+    {{TAG}}            — ex: "JURÍDICO / STJ"
+    {{EYEBROW}}        — ex: "Alerta Prático"
+    {{HEADLINE}}       — headline principal (suporta <br> e <span class="accent">)
+    {{BODY_TEXT}}      — parágrafo (máx 4 linhas — suporta <span class="accent">)
+    {{BADGE_TEXT}}     — ex: "⚖️ Risco real em imóveis ocupados"
+    {{CTA_TEXT}}       — pedido de like
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+body { width: 1080px; height: 1350px; overflow: hidden; }
+
+.slide {
+  width: 1080px; height: 1350px;
+  background: linear-gradient(160deg, #0D0D10 0%, #181820 45%, #080809 100%);
+  position: relative; overflow: hidden;
+}
+
+.orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.orb-tl  { width: 800px; height: 800px; background: #2E1065; opacity: 0.22; top: -280px; left: -200px; }
+.orb-br  { width: 600px; height: 600px; background: #3B0764; opacity: 0.18; bottom: -180px; right: -120px; }
+.orb-cta { width: 1100px; height: 280px; background: #4C1D95; opacity: 0.50; bottom: -80px; left: -100px; }
+
+/* ── ZONA 1: AI IMAGE (0–560px) ── */
+.ai-image-wrap {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 560px; z-index: 5; overflow: hidden;
+}
+.ai-image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+}
+.ai-image-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 280px;
+  background: linear-gradient(0deg, #0D0D10 0%, rgba(13,13,16,0.70) 50%, transparent 100%);
+  z-index: 2;
+}
+.ai-image-wrap::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(13,13,16,0.30) 0%, transparent 30%);
+  z-index: 2;
+}
+
+/* ── ZONA 1b: HEADER ── */
+.header {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 44px 56px 0; z-index: 20;
+}
+/* Logo maior */
+.logo img { height: 112px; }
+
+/* TAG maior */
+.tag {
+  background: rgba(192,132,252,0.12); border: 1px solid rgba(192,132,252,0.40);
+  color: #C084FC; font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 600;
+  padding: 13px 30px; border-radius: 100px;
+}
+
+/* ── ZONA 2: HEADLINE (180–460px, sobre a imagem) ── */
+.headline-block {
+  position: absolute; top: 180px; left: 16px; right: 16px;
+  height: 280px; overflow: hidden;
+  z-index: 20;
+  text-align: center;
+}
+/* Eyebrow maior */
+.eyebrow {
+  font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600;
+  color: #C084FC; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px;
+}
+.divider {
+  width: 64px; height: 4px; background: linear-gradient(90deg, #7C3AED, #C084FC);
+  border-radius: 2px; margin: 0 auto 18px auto;
+}
+/* Headline maior e centralizada */
+.headline {
+  font-family: 'Montserrat', sans-serif; font-size: 70px; font-weight: 900;
+  color: #FFF; line-height: 1.05; letter-spacing: -2px;
+  text-shadow: 0 2px 28px rgba(13,13,16,0.95);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.headline .accent { color: #C084FC; }
+
+/* ── ZONA 3: CONTENT CARD — 400px, centralizado entre imagem(560px) e CTA(1140px) ── */
+/* centro do espaço = 850px → top = 850-200 = 650px, bottom = 1350-1050 = 300px */
+.content-card {
+  position: absolute; top: 650px; bottom: 300px; left: 52px; right: 52px;
+  z-index: 30;
+  background: rgba(8,8,10,0.65);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(192,132,252,0.18);
+  border-radius: 24px; padding: 40px 52px;
+  display: flex; flex-direction: column; justify-content: center; gap: 24px;
+  overflow: hidden;
+}
+/* Body text maior, máx 4 linhas */
+.body-text {
+  font-family: 'Inter', sans-serif; font-size: 39px;
+  font-weight: 500; color: rgba(255,255,255,0.90); line-height: 1.55;
+  overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+}
+.body-text .accent { color: #C084FC; font-weight: 600; }
+/* Badge maior */
+.badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(192,132,252,0.10); border: 1px solid rgba(192,132,252,0.30);
+  color: rgba(255,255,255,0.85); font-family: 'Inter', sans-serif;
+  font-size: 28px; font-weight: 600; padding: 13px 28px; border-radius: 100px;
+  flex-shrink: 0; align-self: flex-start;
+}
+
+/* ── ZONA 4: CTA (1140–1350px, 210px) ── */
+.cta-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 210px; z-index: 40;
+  background: linear-gradient(135deg, #3B0764 0%, #6B21A8 42%, #4C1D95 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 60px;
+}
+.cta-bar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #C084FC 50%, transparent 100%);
+}
+.cta-main {
+  font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 900;
+  color: #FFF; letter-spacing: -0.5px; line-height: 1.1; text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="orb orb-tl"></div>
+  <div class="orb orb-br"></div>
+  <div class="orb orb-cta"></div>
+
+  <div class="ai-image-wrap">
+    <img src="data:image/png;base64,{{AI_IMAGE_B64}}" alt="Imagem ilustrativa">
+  </div>
+
+  <div class="header">
+    <div class="logo"><img src="data:image/png;base64,{{LOGO_B64}}" alt="Sucesso Imóvel"></div>
+    <div class="tag">{{TAG}}</div>
+  </div>
+
+  <div class="headline-block">
+    <div class="eyebrow">{{EYEBROW}}</div>
+    <div class="divider"></div>
+    <div class="headline">{{HEADLINE}}</div>
+  </div>
+
+  <div class="content-card">
+    <div class="body-text">{{BODY_TEXT}}</div>
+    <div class="badge">{{BADGE_TEXT}}</div>
+  </div>
+
+  <div class="cta-bar">
+    <div class="cta-main">{{CTA_TEXT}}</div>
+  </div>
+</div>
+</body>
+</html>

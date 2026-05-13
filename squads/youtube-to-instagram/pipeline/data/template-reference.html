@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE REFERÊNCIA: Carrossel Premium Dark — Sucesso Imóvel
+  Versão: final (2026-05-13) — aprovado pelo usuário
+
+  LAYOUT (todos os slides):
+    Header    — logo branco centralizado (112px) + tag absoluta top-right
+    Conteúdo  — top:220px (eyebrow 30px + divider + headline + card)
+    Footer    — @sucessoimovel à esquerda + botão ← ARRASTE à direita (exceto último slide)
+
+  BOTÃO ARRASTE:
+    ← ARRASTE | border-radius:12px (levemente arredondado — NÃO pílula)
+    color:rgba(255,255,255,0.90) | background:rgba(255,255,255,0.08)
+    border:2px solid rgba(255,255,255,0.30) | padding:16px 36px | font-size:36px
+
+  SLIDE CTA (último — sem ARRASTE):
+    Dois argumentos persuasivos: por que salvar + por que compartilhar
+    Bloco gradiente: background:linear-gradient(135deg,#3B0764,#6B21A8)
+    NUNCA usar fórmula genérica "salva e compartilha"
+
+  PLACEHOLDERS:
+    {{LOGO_B64}} — base64 do SI-Logo-Branco-Transp.png
+    {{TAG}}      — ex: "JURÍDICO / POSSE"
+-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Montserrat:wght@800;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1080px; height: 1440px; overflow: hidden;
+      background: linear-gradient(160deg, #0A0012 0%, #1A0A2E 45%, #0D0D0D 100%);
+      font-family: 'Inter', sans-serif;
+      display: flex; flex-direction: column;
+      padding: 72px;
+      position: relative;
+    }
+    /* Decorative glow effects */
+    .glow-top {
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #7B2FBE44, transparent 65%);
+      pointer-events: none;
+    }
+    .glow-bottom {
+      position: absolute; bottom: -80px; left: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, #A855F722, transparent 65%);
+      pointer-events: none;
+    }
+    /* Thin purple accent line */
+    .accent-line {
+      position: absolute; top: 0; left: 72px; right: 72px; height: 3px;
+      background: linear-gradient(90deg, transparent, #7B2FBE, #A855F7, transparent);
+    }
+    /* Header — logo centralizado, tag absoluta no canto direito */
+    .header {
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1; margin-bottom: 72px;
+    }
+    .logo img { height: 112px; }
+    .live-tag {
+      position: absolute; top: 0; right: 0;
+      background: #7B2FBE33; border: 1px solid #7B2FBE;
+      border-radius: 100px; padding: 13px 30px;
+      font-size: 26px; color: #A855F7; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 2px;
+    }
+    /* Main title area */
+    .title-area { position: relative; z-index: 1; margin-bottom: 44px; }
+    .eyebrow {
+      font-size: 30px; font-weight: 700; color: #A855F7;
+      text-transform: uppercase; letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    .main-title {
+      font-size: 60px; font-weight: 900; line-height: 1.18;
+      font-family: 'Montserrat', sans-serif; color: #FFFFFF;
+    }
+    .main-title .gradient-text {
+      background: linear-gradient(90deg, #A855F7, #D4A0FF);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 34px; font-weight: 500; color: #9B9B9B;
+      line-height: 1.55; margin-top: 24px;
+    }
+    /* Metric cards */
+    .cards {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 16px;
+      flex: 1; justify-content: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(123, 47, 190, 0.3);
+      border-radius: 16px; padding: 28px 36px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .card:nth-child(1) { border-color: rgba(168, 85, 247, 0.5); }
+    .card:nth-child(3) { background: rgba(123, 47, 190, 0.12); }
+    .card-label { font-size: 28px; color: #9B9B9B; font-weight: 500; }
+    .card-value { font-size: 44px; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+    .v1 { color: #A855F7; }
+    .v2 { color: #D4A0FF; }
+    .v3 { color: #FFFFFF; }
+    .v4 { color: #6B6B6B; }
+    /* Footer */
+    .footer {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 32px;
+    }
+    .footer-left { display: flex; align-items: center; gap: 16px; }
+    .footer-dot {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, #7B2FBE, #A855F7);
+    }
+    .footer-handle { font-size: 24px; color: #6B6B6B; font-weight: 500; }
+    /* Botão "← ARRASTE" — estilo transparente destacado */
+    .swipe {
+      font-size: 36px; font-weight: 700; letter-spacing: 1px;
+      color: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.30);
+      border-radius: 12px; padding: 16px 36px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-top"></div>
+  <div class="glow-bottom"></div>
+  <div class="accent-line"></div>
+
+  <!-- Header — logo centralizado, tag absoluta no canto direito -->
+  <div class="header">
+    <div class="logo"><img src="data:image/png;base64,{{LOGO_B64}}" alt="Sucesso Imóvel"></div>
+    <div class="live-tag">{{TAG}}</div>
+  </div>
+
+  <!-- Title -->
+  <div class="title-area">
+    <div class="eyebrow">Análise jurídica</div>
+    <h1 class="main-title">
+      Por que corretores<br>
+      perdem <span class="gradient-text">R$50mil</span><br>
+      em um único erro
+    </h1>
+    <p class="subtitle">Os dados que todo profissional de imóveis precisa conhecer antes do próximo contrato.</p>
+  </div>
+
+  <!-- Metric Cards -->
+  <div class="cards">
+    <div class="card">
+      <span class="card-label">Contratos com falhas documentais</span>
+      <span class="card-value v1">67%</span>
+    </div>
+    <div class="card">
+      <span class="card-label">Negócios desfeitos por cláusula inválida</span>
+      <span class="card-value v2">1 em 3</span>
+    </div>
+    <div class="card">
+      <span class="card-label">Prejuízo médio por litígio imobiliário</span>
+      <span class="card-value v3">R$47k</span>
+    </div>
+    <div class="card">
+      <span class="card-label">Custo de uma consultoria jurídica prévia</span>
+      <span class="card-value v4">-90%</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="footer-dot"></div>
+      <span class="footer-handle">@sucessoimovel</span>
+    </div>
+    <span class="swipe">← ARRASTE</span>
+  </div>
+</body>
+</html>

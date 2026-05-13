@@ -1,0 +1,5 @@
+id,name,title,icon,execution,path
+yago-video,Yago Vídeo,YouTube Video Analyst,🎬,subagent,./agents/yago-video.agent.md
+iago-instagram,Iago Instagram,Instagram Content Creator,✍️,inline,./agents/iago-instagram.agent.md
+diego-design,Diego Design,Visual Designer,🎨,subagent,./agents/diego-design.agent.md
+renata-revisao,Renata Revisão,Quality Reviewer,🔍,inline,./agents/renata-revisao.agent.md

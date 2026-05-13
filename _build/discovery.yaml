@@ -1,0 +1,27 @@
+squad_code: "youtube-to-instagram"
+purpose: "Recebe link de vídeo do YouTube, analisa o conteúdo, sugere ideias de posts para Instagram (único ou carrossel), aguarda aprovação do usuário, gera as imagens dos posts e apresenta para revisão."
+domain: "content"
+
+company:
+  name: "Sucesso Imóvel Consultoria Jurídica Imobiliária"
+  tone: "Consultivo e confiável — parceiro estratégico do corretor"
+  products: "Consultoria jurídica para corretores e imobiliárias"
+
+language: "Português (Brasil)"
+
+context:
+  audience: "Corretores e imobiliárias (B2B)"
+  platforms: "Instagram"
+  formats: "Post único e carrossel"
+  tone: "Adaptável por post — squad decide o melhor estilo com base no conteúdo; paleta principal: Roxo, Preto, Cinza e Branco"
+
+tools_needed:
+  - "image-creator"
+  - "template-designer"
+
+investigation:
+  enabled: false
+  profiles: []
+
+target_formats:
+  - "instagram-feed"
