@@ -14,7 +14,7 @@
 
   PLACEHOLDERS:
     {{LOGO_B64}}   — base64 do SI-Logo-Color-Transp.png (COLORIDO — fundo claro!)
-    {{TAG}}        — ex: "JURÍDICO / STJ"
+
     {{EYEBROW}}    — ex: "Para Reflexão"
     {{HEADLINE}}   — headline principal (suporta <br> e <span class="accent">)
     {{QUOTE_TEXT}} — frase impactante de destaque (1–2 frases curtas)
@@ -72,13 +72,6 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 }
 /* Logo centralizado */
 .logo img { height: 112px; }
-/* Tag — posicionada no canto superior direito independente do logo */
-.tag {
-  position: absolute; top: 54px; right: 56px;
-  background: rgba(109,40,217,0.08); border: 1px solid rgba(109,40,217,0.30);
-  color: #6D28D9; font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 600;
-  padding: 13px 30px; border-radius: 100px; z-index: 21;
-}
 
 /* ── ZONA 2: HEADLINE (168–490px, 322px fixos) ── */
 .headline-block {
@@ -187,9 +180,6 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   <div class="header">
     <div class="logo"><img src="data:image/png;base64,{{LOGO_B64}}" alt="Sucesso Imóvel"></div>
   </div>
-  <!-- Tag — canto superior direito, independente do logo -->
-  <div class="tag">{{TAG}}</div>
-
   <!-- ZONA 2: Headline (168–490px, sobre fundo) -->
   <div class="headline-block">
     <div class="eyebrow">{{EYEBROW}}</div>

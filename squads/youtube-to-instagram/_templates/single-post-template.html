@@ -12,7 +12,8 @@
     {{HEADLINE}}      — headline principal (suporta <br> e <span class="accent">)
     {{BODY_TEXT}}     — parágrafo explicativo (suporta <span class="accent">)
     {{BADGE_TEXT}}    — ex: "⚖️ Decisão de março de 2025"
-    {{CTA_TEXT}}      — ex: "Você já sabia disso? Conta nos comentários"
+    {{CTA_TEXT}}      — pergunta principal da CTA (Montserrat 900, branco, 46px)
+    {{CTA_SUB}}       — instrução de ação abaixo da CTA (ex: "Responda nos comentários!") — Inter 500, lavanda #DDD6FE, 26px
 
   REGRAS DE LAYOUT:
     - Headline (left: 80px, width: 420px) termina em ~500px — não sobrepõe a foto
@@ -120,8 +121,8 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   height: 200px; z-index: 40;
   background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 42%, #6D28D9 100%);
   border-top: 2px solid rgba(196,181,253,0.28);
-  display: flex; align-items: center; justify-content: center;
-  padding: 0 60px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 0 60px;
 }
 .cta-bar::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -130,6 +131,10 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 .cta-main {
   font-family: 'Montserrat', sans-serif; font-size: 46px; font-weight: 900;
   color: #FFF; letter-spacing: -0.5px; line-height: 1.1; text-align: center;
+}
+.cta-sub {
+  font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 500;
+  color: #DDD6FE; letter-spacing: 0.5px; text-align: center;
 }
 </style>
 </head>
@@ -161,6 +166,7 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 
   <div class="cta-bar">
     <div class="cta-main">{{CTA_TEXT}}</div>
+    <div class="cta-sub">{{CTA_SUB}}</div>
   </div>
 </div>
 </body>

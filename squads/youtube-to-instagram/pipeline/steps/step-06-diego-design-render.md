@@ -2,7 +2,7 @@
 type: agent
 agent: diego-design
 execution: subagent
-inputFile: squads/youtube-to-instagram/output/post-content.md
+inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Posts/
 skill: image-creator
 ---
@@ -14,7 +14,7 @@ Diego Design transforma o conteúdo aprovado em imagens PNG para os 4 posts: 3 p
 ## Context Loading
 
 Antes de iniciar, Diego deve carregar:
-- `squads/youtube-to-instagram/output/post-content.md` — Conteúdo aprovado
+- `squads/youtube-to-instagram/output/Posts/post-content.md` — Conteúdo aprovado
 - `squads/youtube-to-instagram/pipeline/data/visual-identity.md` — Identidade visual
 - `squads/youtube-to-instagram/pipeline/data/template-reference.html` — Template carrossel Premium Dark
 - `squads/youtube-to-instagram/_templates/single-post-template.html` — Template Post Único 1 (roxo)

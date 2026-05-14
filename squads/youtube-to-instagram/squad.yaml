@@ -1,6 +1,6 @@
 name: "YouTube → Instagram"
 code: "youtube-to-instagram"
-description: "Transforma vídeos do YouTube em 3 posts únicos + 1 carrossel para o Instagram + roteiro YouTube + 5 roteiros Reels da Sucesso Imóvel."
+description: "Transforma vídeos (YouTube ou arquivo local) em 3 posts únicos + 1 carrossel para o Instagram + roteiro YouTube + 5 roteiros Reels da Sucesso Imóvel."
 icon: "🎬"
 version: "2.0.0"
 language: "Português (Brasil)"

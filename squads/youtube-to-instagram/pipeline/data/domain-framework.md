@@ -92,7 +92,7 @@ YouTube Link
 ### Processo de rendering
 1. Ler conteúdo dos slides em post-content.md
 2. Criar um HTML por slide (slide-01.html, slide-02.html...)
-3. Iniciar HTTP server em output/slides/
+3. Iniciar HTTP server em output/Posts/
 4. Renderizar slide-01 e verificar visualmente
 5. Renderizar restantes
 6. Parar HTTP server

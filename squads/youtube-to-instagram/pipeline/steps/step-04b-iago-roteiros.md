@@ -2,7 +2,7 @@
 type: agent
 agent: iago-instagram
 execution: inline
-inputFile: squads/youtube-to-instagram/output/post-content.md
+inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Roteiros/
 ---
 
@@ -13,7 +13,7 @@ Iago cria os roteiros de vídeo com base no conteúdo aprovado no step 04: um ro
 ## Context Loading
 
 Antes de iniciar, Iago deve carregar:
-- `squads/youtube-to-instagram/output/{run-id}/v1/post-content.md` — Conteúdo dos posts já criados
+- `squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md` — Conteúdo dos posts já criados
 - `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Análise do vídeo original
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 

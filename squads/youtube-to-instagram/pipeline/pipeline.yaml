@@ -2,63 +2,70 @@ squad: youtube-to-instagram
 
 steps:
   - step: 1
-    name: youtube-input
+    name: video-input
     file: steps/step-01-youtube-input.md
     type: checkpoint
 
   - step: 2
+    name: local-transcription
+    file: steps/step-02-local-transcription.md
+    type: agent
+    agent: transcription
+    execution: inline
+
+  - step: 3
     name: yago-video-analysis
     file: steps/step-02-yago-video-analysis.md
     type: agent
     agent: yago-video
     execution: subagent
 
-  - step: 3
+  - step: 4
     name: ideas-approval
     file: steps/step-03-ideas-approval.md
     type: checkpoint
 
-  - step: 4
+  - step: 5
     name: iago-content-creation
     file: steps/step-04-iago-content-creation.md
     type: agent
     agent: iago-instagram
     execution: inline
 
-  - step: 5
+  - step: 6
     name: iago-roteiros
     file: steps/step-04b-iago-roteiros.md
     type: agent
     agent: iago-instagram
     execution: inline
 
-  - step: 6
+  - step: 7
     name: content-approval
     file: steps/step-05-content-approval.md
     type: checkpoint
 
-  - step: 7
+  - step: 8
     name: diego-design-render
     file: steps/step-06-diego-design-render.md
     type: agent
     agent: diego-design
     execution: subagent
 
-  - step: 8
+  - step: 9
     name: renata-review
     file: steps/step-07-renata-review.md
     type: agent
     agent: renata-revisao
     execution: inline
-    on_reject: 4
+    on_reject: 5
 
-  - step: 9
+  - step: 10
     name: final-approval
     file: steps/step-08-final-approval.md
     type: checkpoint
 
 checkpoints:
   - step: 1
-  - step: 3
-  - step: 6
-  - step: 9
+  - step: 4
+  - step: 7
+  - step: 10

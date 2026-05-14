@@ -134,6 +134,16 @@ Aprovado em: 2026-05-13 (versão final)
 - Progressão Mito → Realidade → Impacto prático → Checklist acionável → CTA aprovada pelo usuário.
 - Slide de checklist numerado com frase de encerramento ("X itens. Zero surpresa.") tem alto potencial de save.
 
+## Hashtags Oficiais
+
+Todos os posts e legendas devem usar **somente** estas 6 hashtags — sem adições, sem substituições:
+
+```
+#sucessoimovel #corretordeimoveis #direitoimobiliario #corretorimobiliario #imobiliaria #imobiliariabarradatijuca
+```
+
+Hashtags temáticas geradas por IA (ex: #contratonulo, #prazoscontrato, #checklistjuridico) são **proibidas**.
+
 ## Proibições Explícitas
 
 - **EMOJIS PROIBIDOS** em qualquer tipo de post — headline, body text, badge, CTA, legenda, hashtags, roteiros. Aplica-se a todos os outputs: Post Único 1, 2, 3, Carrossel, roteiro YouTube e roteiros Reels. Sem exceção.
@@ -142,5 +152,5 @@ Aprovado em: 2026-05-13 (versão final)
 ## Técnico (específico do squad)
 
 - Nome da pasta de output: `YYYY-MM-DD-HHmmss-tema-slug` (data + hora + 1 a 3 palavras do tema em kebab-case).
-- Estrutura de subpastas obrigatória: `Posts/` para imagens e `Roteiros/` para scripts de vídeo.
+- Estrutura de subpastas obrigatória: `Posts/` para imagens, PNGs **e** `post-content.md`; `Roteiros/` para scripts de vídeo.
 - Logo embedado como base64 data URI — nunca como path relativo (o HTTP server serve só da pasta de slides).

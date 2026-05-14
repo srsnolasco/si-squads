@@ -1,7 +1,7 @@
 ---
 type: checkpoint
-inputFile: squads/youtube-to-instagram/output/post-content.md
-outputFile: squads/youtube-to-instagram/output/post-content.md
+inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
+outputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 ---
 
 # Step 05: Aprovação do Conteúdo + Seleção de Foto
@@ -10,7 +10,7 @@ Iago Instagram criou o conteúdo completo dos 4 posts. Antes de gerar as imagens
 
 ## Context
 
-O arquivo `output/post-content.md` contém:
+O arquivo `output/Posts/post-content.md` contém:
 - Texto para os 3 posts únicos (headlines, body text, quote, accent keywords)
 - Estrutura do carrossel (slides, supporting text)
 - Legendas completas (hook + corpo + CTA) para todos os posts

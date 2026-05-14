@@ -3,7 +3,7 @@ type: agent
 agent: iago-instagram
 execution: inline
 inputFile: squads/youtube-to-instagram/output/approved-ideas.md
-outputFile: squads/youtube-to-instagram/output/post-content.md
+outputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 ---
 
 # Step 04: Iago Instagram — Criação do Conteúdo
@@ -94,7 +94,7 @@ O squad produz **4 posts** a cada run:
 
 ## Output Format
 
-Salvar em `output/post-content.md`:
+Salvar em `output/Posts/post-content.md`:
 
 ```markdown
 # Post Content — {título geral da série}
@@ -188,7 +188,7 @@ Data: {YYYY-MM-DD}
 - [ ] Quote text do Post 3 é impactante e curto (máx. 2 frases)
 - [ ] Todos os hooks têm no máximo 125 caracteres
 - [ ] Todo conteúdo rastreável à análise do vídeo em `youtube-analysis.md`
-- [ ] `output/post-content.md` salvo antes de encerrar
+- [ ] `output/Posts/post-content.md` salvo antes de encerrar
 - [ ] **ZERO emojis** em qualquer campo de qualquer post — headline, body, badge, CTA, legenda, hashtags
 
 ## Veto Conditions

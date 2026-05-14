@@ -8,14 +8,15 @@ model_tier: powerful
 run_id_slug: true
 ---
 
-# Step 02: Yago Vídeo — Análise do YouTube
+# Step 03: Yago Vídeo — Análise do Conteúdo
 
-Yago Vídeo analisa o vídeo do YouTube informado pelo usuário e gera ideias de posts para o Instagram.
+Yago Vídeo analisa o conteúdo do vídeo (YouTube ou local transcrito) e gera ideias de posts para o Instagram.
 
 ## Context Loading
 
 Antes de iniciar, Yago deve carregar:
-- `squads/youtube-to-instagram/output/youtube-focus.md` — URL e foco do vídeo informados pelo usuário
+- `squads/youtube-to-instagram/output/youtube-focus.md` — fonte do vídeo e foco informados pelo usuário
+- `squads/youtube-to-instagram/output/video-transcript.md` — transcrição (se fonte local) ou marcador "none" (se YouTube)
 - `squads/youtube-to-instagram/pipeline/data/research-brief.md` — Framework de análise YouTube→Instagram
 - `squads/youtube-to-instagram/pipeline/data/domain-framework.md` — Classificação de conteúdo e design
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel para contextualizar a análise
@@ -24,9 +25,18 @@ Antes de iniciar, Yago deve carregar:
 
 ### Tarefa 1: Analisar o Vídeo
 
-1. Ler `output/youtube-focus.md` para obter a URL do vídeo e o foco informado pelo usuário.
+1. Ler `output/youtube-focus.md` para verificar `source_type` (youtube ou local) e o foco informado.
+
+**Se `source_type: youtube`:**
 2. Usar `web_fetch` na URL do YouTube para obter: título, descrição, canal, duração, data de publicação.
 3. Identificar os principais tópicos abordados no vídeo.
+
+**Se `source_type: local`:**
+2. Ler `output/video-transcript.md` para obter a transcrição completa do vídeo.
+3. O título do vídeo será o `file_name` sem extensão (formatar de forma legível, ex: "minha-aula.mp4" → "Minha Aula").
+4. Identificar os principais tópicos abordados com base na transcrição.
+
+**Ambos os casos:**
 4. Extrair insights, dados, estatísticas ou afirmações relevantes para corretores e o mercado imobiliário.
 5. Mapear os pontos de maior valor educacional ou de autoridade para a audiência-alvo.
 6. Salvar a análise completa em `output/youtube-analysis.md`.

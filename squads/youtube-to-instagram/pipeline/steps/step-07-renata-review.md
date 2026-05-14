@@ -2,7 +2,7 @@
 type: agent
 agent: renata-revisao
 execution: inline
-inputFile: squads/youtube-to-instagram/output/post-content.md
+inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/review.md
 on_reject: 4
 ---
@@ -14,8 +14,8 @@ Renata Revisão avalia o conteúdo textual e as imagens renderizadas contra os c
 ## Context Loading
 
 Antes de iniciar, Renata deve carregar:
-- `squads/youtube-to-instagram/output/post-content.md` — Texto completo dos slides, legenda e hashtags
-- `squads/youtube-to-instagram/output/slides/` — PNGs renderizados (verificação visual)
+- `squads/youtube-to-instagram/output/Posts/post-content.md` — Texto completo dos slides, legenda e hashtags
+- `squads/youtube-to-instagram/output/Posts/` — PNGs renderizados (verificação visual)
 - `squads/youtube-to-instagram/pipeline/data/quality-criteria.md` — Critérios e thresholds de avaliação
 - `squads/youtube-to-instagram/output/youtube-analysis.md` — Análise do vídeo (fonte de verdade para verificar aderência)
 
@@ -24,7 +24,7 @@ Antes de iniciar, Renata deve carregar:
 ### Processo de Review
 
 1. Ler `post-content.md` na íntegra — todos os slides, a legenda completa e as hashtags.
-2. Ler os PNGs em `output/slides/` para verificar qualidade visual das imagens.
+2. Ler os PNGs em `output/Posts/` para verificar qualidade visual das imagens.
 3. Ler `pipeline/data/quality-criteria.md` para os critérios de avaliação e thresholds.
 4. Avaliar cada critério individualmente com score 1-10 e justificativa de ao menos uma frase.
 5. Verificar hard rejection triggers:

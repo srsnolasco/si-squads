@@ -1,6 +1,9 @@
 # Outputs gerados pelos squads (posts, roteiros, imagens)
 squads/*/output/
 
+# Vídeos originais (pasta inteira — arquivos grandes, privados)
+squads/*/assets/videos-originais/
+
 # Assets (logos, fotos, imagens — arquivos grandes e privados)
 assets/
 
