@@ -1,56 +1,62 @@
 ---
 type: checkpoint
-inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
-outputFile: squads/youtube-to-instagram/output/Posts/post-content.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/selected-jeorge-photo.md
 ---
 
-# Step 05: Aprovação do Conteúdo + Seleção de Foto
+# Step 16: Aprovação do Conteúdo + Seleção de Foto
 
-Iago Instagram criou o conteúdo completo dos 4 posts. Antes de gerar as imagens, você revisa o texto e escolhe qual foto do Dr. Jeorge usar no Post Único 1.
+Todo o conteúdo do ciclo foi criado. Antes de gerar as imagens, você revisa o material e escolhe qual foto do Dr. Jeorge usar no Ter-PU1.
 
-## Context
+## O que está disponível para revisão
 
-O arquivo `output/Posts/post-content.md` contém:
-- Texto para os 3 posts únicos (headlines, body text, quote, accent keywords)
-- Estrutura do carrossel (slides, supporting text)
-- Legendas completas (hook + corpo + CTA) para todos os posts
-- Hashtags
+### Posts
+- `output/{run-id}/Posts/post-content.md` — conteúdo dos 5 posts (Seg-CT, Ter-PU1, Qua-PU2, Qui-PU3, Sex-CCTA)
+- `output/{run-id}/Posts/post-content.html` — brief visual dos 5 posts em Premium Dark — **abrir no navegador para revisar**
 
-Esta é sua oportunidade de ajustar qualquer texto antes que as imagens sejam geradas. Após a aprovação, Diego Design criará os arquivos HTML e renderizará as imagens — mudanças de texto depois desta etapa exigem re-renderização.
+### Isca Digital
+- `output/{run-id}/Lead-Magnets/lead-magnet-{PALAVRA}-{slug}.pdf` — PDF final da isca digital
+
+### Roteiro YouTube
+- `output/{run-id}/Roteiros/roteiro-youtube-{slug}.html` — versão visual do roteiro
+
+### Reels Virais
+- `output/{run-id}/Roteiros/roteiros-reels-virais-{slug}.html` — todos os 6 roteiros agrupados
+
+### Stories
+- `output/{run-id}/Stories/stories-semana-{slug}.html` — todos os stories da semana agrupados
+
+### Análise do Vídeo
+- `output/{run-id}/v1/youtube-analysis.html` — relatório completo do vídeo
 
 ---
 
-## Pergunta 1: Conteúdo
+## Pergunta 1: Conteúdo dos Posts
 
-**O conteúdo está aprovado para gerar as imagens?**
+**O conteúdo dos 5 posts está aprovado para gerar as imagens?**
 
-Opções:
-- **Aprovar** — O conteúdo está ótimo, pode gerar as imagens
-- **Ajustar texto** — Descreva o que quer mudar (post específico, legenda, hashtags) e Iago corrige antes de prosseguir
-- **Mudar o tom** — Reescrever com tom de voz diferente
-- **Cancelar este post** — Voltar para a seleção de ideias e escolher outra
+- **Aprovar** — Conteúdo ótimo, pode gerar as imagens
+- **Ajustar texto** — Descrever o que mudar (post específico, slide, legenda, hashtags) e Iago corrige antes de prosseguir
+- **Mudar tom** — Reescrever com tom de voz diferente
+- **Cancelar** — Voltar ao step 10 (ideas-approval) e escolher outras ideias
+
+> Após a aprovação, Diego Design renderiza os 5 posts. Mudanças de texto depois desta etapa exigem re-renderização.
 
 ---
 
-## Pergunta 2: Foto do Dr. Jeorge (Post Único 1)
+## Pergunta 2: Foto do Dr. Jeorge (Ter-PU1)
 
-Antes de iniciar a renderização, listar as fotos disponíveis:
+Listar as fotos disponíveis:
 
 ```bash
 ls assets/imagens/jeorge/ | grep -E 'SI-Jeorge-[0-9]+' | sort
 ```
 
-**Qual foto do Dr. Jeorge usar no Post Único 1?**
+**Qual foto do Dr. Jeorge usar no Ter-PU1?**
 
-Apresentar as opções disponíveis com base no resultado do ls acima. Exemplos esperados:
-- **Foto 01** — `SI-Jeorge-01.png`
-- **Foto 02** — `SI-Jeorge-02.png`
-- **Foto 03** — `SI-Jeorge-03.png`
-- *(novas fotos adicionadas seguirão a sequência 04, 05, 06...)*
+Apresentar as opções com base no resultado do `ls` acima. Usar `AskUserQuestion` com as fotos disponíveis como opções dinâmicas.
 
-Usar `AskUserQuestion` com as fotos disponíveis como opções dinâmicas.
-
-Salvar a escolha em `output/selected-jeorge-photo.md`:
+Salvar a escolha em `output/{run-id}/selected-jeorge-photo.md`:
 
 ```markdown
 # Foto Dr. Jeorge Selecionada
@@ -61,4 +67,4 @@ Número: {01 | 02 | 03 | ...}
 
 ---
 
-Se o conteúdo for aprovado e a foto selecionada, Diego Design será acionado para criar e renderizar os 4 posts em `output/{run-id}/Posts/`.
+Se o conteúdo for aprovado e a foto selecionada, Diego Design será acionado no step 17 para renderizar os 5 posts em `output/{run-id}/Posts/`.

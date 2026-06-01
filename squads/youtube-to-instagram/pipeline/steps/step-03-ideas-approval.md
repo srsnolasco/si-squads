@@ -1,32 +1,49 @@
 ---
 type: checkpoint
-inputFile: squads/youtube-to-instagram/output/post-ideas.md
-outputFile: squads/youtube-to-instagram/output/approved-ideas.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/post-ideas.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/approved-ideas.md
 ---
 
-# Step 03: Aprovação das Ideias
+# Step 10: Aprovação das Ideias + Seleção de Foto
 
-Yago Vídeo gerou ideias de posts com base no vídeo analisado. Agora você escolhe quais quer desenvolver.
+Yago Vídeo gerou 5 ideias de posts com base no vídeo analisado. Agora você aprova as ideias e escolhe a foto do Dr. Jeorge para o Ter-PU1 — antes de Iago criar o conteúdo.
 
 ## Context
 
-As ideias foram geradas a partir da análise do vídeo informado. Cada ideia inclui formato sugerido (carrossel ou post único), ângulo editorial, hook e conceito visual.
+As ideias estão em `output/{run-id}/post-ideas.md`. Cada ideia inclui formato, ângulo editorial, hook e conceito visual.
 
 ---
 
-**Quais ideias você quer desenvolver?**
+## Pergunta 1: Aprovação das Ideias
 
-Leia o arquivo `output/post-ideas.md` para ver as ideias geradas e informe:
-- Os números das ideias que aprova (ex: "1 e 3" ou "todas" ou "só a 2")
-- Se quiser ajustes em alguma ideia antes de desenvolver, descreva o ajuste
-- Se quiser mudar o formato de alguma ideia (ex: de carrossel para post único), informe aqui
+**As 5 ideias de posts estão aprovadas para desenvolvimento?**
 
-**Exemplos de resposta:**
-- "Quero desenvolver a ideia 1 e a ideia 3"
-- "Aprovo a 1, mas quero que seja post único em vez de carrossel"
-- "Todas as ideias estão ótimas, pode desenvolver todas"
-- "Só a ideia 2, e muda o ângulo para educativo"
+- **Aprovar todas** — Iago desenvolve os 5 posts como propostos
+- **Ajustar** — Descrever o ajuste (ângulo, formato, hook) e Iago incorpora antes de criar
+- **Cancelar** — Voltar ao step 9 para gerar novas ideias
 
 ---
 
-Após a aprovação, Iago Instagram criará o conteúdo completo (slides, legenda e hashtags) para cada ideia aprovada.
+## Pergunta 2: Foto do Dr. Jeorge (Ter-PU1)
+
+Listar as fotos disponíveis:
+
+```bash
+ls assets/imagens/jeorge/ | grep -E 'SI-Jeorge' | sort
+```
+
+**Qual foto do Dr. Jeorge usar no Ter-PU1?**
+
+Apresentar as opções disponíveis com base no resultado acima. Usar `AskUserQuestion` com as fotos como opções dinâmicas.
+
+Salvar a escolha em `output/{run-id}/selected-jeorge-photo.md`:
+
+```markdown
+# Foto Dr. Jeorge Selecionada
+
+Arquivo: {nome-do-arquivo-escolhido}
+```
+
+---
+
+Após a aprovação e seleção da foto, Iago criará o conteúdo completo dos 5 posts no step seguinte, já referenciando a foto escolhida.

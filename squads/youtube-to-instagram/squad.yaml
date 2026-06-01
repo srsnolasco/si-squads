@@ -23,6 +23,7 @@ data:
   - pipeline/data/tone-of-voice.md
   - pipeline/data/visual-identity.md
   - pipeline/data/template-reference.html
+  - pipeline/data/hashtags.md
   - _templates/single-post-template.html
   - _templates/single-post-2-template.html
   - _templates/single-post-3-template.html

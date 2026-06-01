@@ -9,32 +9,42 @@ skill: image-creator
 
 # Step 06: Diego Design — Criação e Renderização dos Posts
 
-Diego Design transforma o conteúdo aprovado em imagens PNG para os 4 posts: 3 posts únicos e 1 carrossel.
+Diego Design transforma o conteúdo aprovado em imagens PNG para os 5 posts: 3 posts únicos, 1 Seg-CT e 1 Sex-CCTA.
 
 ## Context Loading
 
 Antes de iniciar, Diego deve carregar:
 - `squads/youtube-to-instagram/output/Posts/post-content.md` — Conteúdo aprovado
 - `squads/youtube-to-instagram/pipeline/data/visual-identity.md` — Identidade visual
-- `squads/youtube-to-instagram/pipeline/data/template-reference.html` — Template carrossel Premium Dark
-- `squads/youtube-to-instagram/_templates/single-post-template.html` — Template Post Único 1 (roxo)
-- `squads/youtube-to-instagram/_templates/single-post-2-template.html` — Template Post Único 2 (carvão/roxo claro)
-- `squads/youtube-to-instagram/_templates/single-post-3-template.html` — Template Post Único 3 (branco/lavanda)
+- `squads/youtube-to-instagram/pipeline/data/template-reference.html` — Template Seg-CT Premium Dark
+- `squads/youtube-to-instagram/_templates/single-post-template.html` — Template Ter-PU1 (roxo)
+- `squads/youtube-to-instagram/_templates/single-post-2-template.html` — Template Qua-PU2 (carvão/roxo claro)
+- `squads/youtube-to-instagram/_templates/single-post-3-template.html` — Template Qui-PU3 (branco/lavanda)
 - `squads/youtube-to-instagram/_memory/memories.md` — Regras e especificações dos templates
 
 ## Estrutura de Output
 
-Todos os arquivos vão para `output/{run-id}/Posts/`, com prefixo `{slug}` no nome:
-- `{slug}-single-post-1.html` + `{slug}-single-post-1.png` — Post Único 1 (1080×1350)
-- `{slug}-single-post-2.html` + `{slug}-single-post-2.png` — Post Único 2 (1080×1350)
-- `{slug}-single-post-3.html` + `{slug}-single-post-3.png` — Post Único 3 (1080×1350)
-- `{slug}-slide-01.html` a `{slug}-slide-NN.html` + PNGs — Carrossel (1080×1440)
+Os arquivos são separados em duas pastas:
+
+**`output/{run-id}/Posts/`** — apenas os PNGs finais (entregáveis):
+- `{slug}-single-post-1.png` — Ter-PU1 (1080×1350)
+- `{slug}-single-post-2.png` — Qua-PU2 (1080×1350)
+- `{slug}-single-post-3.png` — Qui-PU3 (1080×1350)
+- `{slug}-slide-01.png a {slug}-slide-NN.png — Seg-CT (1080×1440)
+
+**`output/{run-id}/_html/`** — HTMLs de renderização (fonte dos PNGs, para consulta futura):
+- `{slug}-single-post-1.html`
+- `{slug}-single-post-2.html`
+- `{slug}-single-post-3.html`
+- `{slug}-slide-01.html` a `{slug}-slide-NN.html`
 
 ## Instructions
 
 ### Tarefa 0: Preparação
 
-1. Criar o diretório `output/{run-id}/Posts/` se não existir.
+1. Criar os diretórios necessários se não existirem:
+   - `output/{run-id}/Posts/` — PNGs finais
+   - `output/{run-id}/_html/` — HTMLs de renderização
 2. **Extrair o slug do run-id** para usar como prefixo nos nomes de arquivo:
    ```bash
    python3 -c "run_id='{run-id}'; parts=run_id.split('-', 3); print(parts[3] if len(parts) > 3 else 'post')"
@@ -42,12 +52,12 @@ Todos os arquivos vão para `output/{run-id}/Posts/`, com prefixo `{slug}` no no
    Salvar o resultado na variável `SLUG`. Exemplo: run-id `2026-05-13-201921-definicao-de-posse` → `SLUG=definicao-de-posse`.
 3. Obter base64 do logo branco: `python3 -c "import base64; data = open('assets/imagens/logos/SI-Logo-Branco-Transp.png','rb').read(); print(base64.b64encode(data).decode())"` — salvar na variável `LOGO_B64`.
 4. Obter base64 do logo colorido (para Post 3, fundo claro): `python3 -c "import base64; data = open('assets/imagens/logos/SI-Logo-Color-Transp.png','rb').read(); print(base64.b64encode(data).decode())"` — salvar na variável `LOGO_COLOR_B64`.
-5. Ler `output/{run-id}/selected-jeorge-photo.md` para saber qual foto usar no Post Único 1 — extrair o campo `Arquivo:`.
-6. Iniciar servidor HTTP apontando para `Posts/`: `python3 -m http.server 8765 --directory "{absolute_path}/Posts/" &`
+5. Ler `output/{run-id}/selected-jeorge-photo.md` para saber qual foto usar no Ter-PU1 — extrair o campo `Arquivo:`.
+6. Iniciar servidor HTTP apontando para `_html/`: `python3 -m http.server 8765 --directory "{absolute_path}/_html/" &`
 
 ---
 
-### Tarefa 1: Post Único 1 — Roxo (com foto Dr. Jeorge)
+### Tarefa 1: Ter-PU1 — Roxo (com foto Dr. Jeorge)
 
 1. Ler o template `_templates/single-post-template.html`.
 2. Usar o arquivo de foto lido em `output/{run-id}/selected-jeorge-photo.md` (campo "Arquivo:").
@@ -56,16 +66,16 @@ Todos os arquivos vão para `output/{run-id}/Posts/`, com prefixo `{slug}` no no
    - `{{LOGO_B64}}` → LOGO_B64
    - `{{JEORGE_B64}}` → base64 da foto
    - `{{TAG}}`, `{{EYEBROW}}`, `{{HEADLINE}}`, `{{BODY_TEXT}}`, `{{BADGE_TEXT}}`, `{{CTA_TEXT}}`
-4. Salvar como `Posts/{SLUG}-single-post-1.html`.
+4. Salvar como `_html/{SLUG}-single-post-1.html`.
 5. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/{SLUG}-single-post-1.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-1.html`
    - `browser_resize` → 1080 × 1350
    - `browser_take_screenshot` → `Posts/{SLUG}-single-post-1.png`
 6. Verificar visualmente: logo legível (92px), headline completa sem truncamento, card centralizado, CTA proeminente.
 
 ---
 
-### Tarefa 2: Post Único 2 — Carvão/Roxo Claro (com imagem IA)
+### Tarefa 2: Qua-PU2 — Carvão/Roxo Claro (com imagem IA)
 
 #### 2a. Gerar imagem com image-ai-generator
 
@@ -97,54 +107,74 @@ Todos os arquivos vão para `output/{run-id}/Posts/`, com prefixo `{slug}` no no
    ```
    - Se nenhuma imagem existir: usar placeholder SVG/gradiente escuro como fallback.
 3. Substituir todos os placeholders com o conteúdo do post-content.md.
-4. Salvar como `Posts/{SLUG}-single-post-2.html`.
+4. Salvar como `_html/{SLUG}-single-post-2.html`.
 5. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/{SLUG}-single-post-2.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-2.html`
    - `browser_resize` → 1080 × 1350
    - `browser_take_screenshot` → `Posts/{SLUG}-single-post-2.png`
 6. Verificar: imagem hero visível (IA ou placeholder), headline legível, card com body text, CTA pede like.
 
 ---
 
-### Tarefa 3: Post Único 3 — Branco/Lavanda (só texto)
+### Tarefa 3: Qui-PU3 — Branco/Lavanda (só texto)
 
 1. Ler o template `_templates/single-post-3-template.html`.
-2. Substituir todos os placeholders com o conteúdo do post-content.md (campos do Post Único 3).
+2. Substituir todos os placeholders com o conteúdo do post-content.md (campos do Qui-PU3).
    - `{{LOGO_B64}}` → **LOGO_COLOR_B64** (logo colorido — fundo claro!)
    - Incluir `{{QUOTE_TEXT}}` com o texto de destaque.
-3. Salvar como `Posts/{SLUG}-single-post-3.html`.
+3. Salvar como `_html/{SLUG}-single-post-3.html`.
 4. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/{SLUG}-single-post-3.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-3.html`
    - `browser_resize` → 1080 × 1350
    - `browser_take_screenshot` → `Posts/{SLUG}-single-post-3.png`
 5. Verificar: layout 100% tipográfico, quote box destacado, CTA pede para seguir.
 
 ---
 
-### Tarefa 4: Carrossel — Premium Dark Roxo
+### Tarefa 4: Seg-CT — Carrossel Tutorial Premium Dark Roxo
 
 1. Ler `pipeline/data/template-reference.html` como modelo.
-2. Para cada slide do carrossel:
+2. Para cada slide do Seg-CT:
    a. Criar HTML baseado no template Premium Dark (fundo roxo/preto, paleta #7B2FBE / #A855F7)
    b. Aplicar accent keywords em `color: #A855F7`
    c. **Header:** logo branco centralizado (`height: 112px`, `justify-content: center`); tag no canto superior direito absoluto (`position:absolute; top:44px; right:72px; border-radius:100px`)
    d. **Eyebrow:** `font-size: 30px` — mais destacado
    e. **Conteúdo:** iniciar em `top: 220px` para dar espaço ao header
    f. **Botão ARRASTE:** `← ARRASTE` (seta à ESQUERDA), estilo botão transparente levemente arredondado: `color:rgba(255,255,255,0.90); background:rgba(255,255,255,0.08); border:2px solid rgba(255,255,255,0.30); border-radius:12px; padding:16px 36px; font-size:36px; font-weight:700`
-   g. **Slide CTA (último):** o bloco de CTA deve sempre incluir um argumento persuasivo para salvar e compartilhar — não usar a fórmula genérica "salva e compartilha". Em vez disso, criar uma frase que justifique o salvamento ("você vai precisar disso antes do próximo fechamento", "esse conteúdo aparece na hora certa") e o compartilhamento ("manda para o colega que fechou sem verificar", "um corretor que você conhece vai agradecer"). O argumento deve ser específico ao tema do carrossel.
-   g. Salvar como `Posts/{SLUG}-slide-01.html`, `Posts/{SLUG}-slide-02.html`, etc.
+   g. **Slide CTA (último):** o bloco de CTA deve sempre incluir um argumento persuasivo para salvar e compartilhar — não usar a fórmula genérica "salva e compartilha". Em vez disso, criar uma frase que justifique o salvamento ("você vai precisar disso antes do próximo fechamento", "esse conteúdo aparece na hora certa") e o compartilhamento ("manda para o colega que fechou sem verificar", "um corretor que você conhece vai agradecer"). O argumento deve ser específico ao tema do Seg-CT.
+   g. Salvar como `_html/{SLUG}-slide-01.html`, `_html/{SLUG}-slide-02.html`, etc.
 3. Renderizar cada slide:
-   - `browser_resize` → 1080 × 1440 (carrossel é mais alto que post único)
+   - `browser_resize` → 1080 × 1440 (Seg-CT é mais alto que post único)
    - `browser_take_screenshot` → `Posts/{SLUG}-slide-01.png`, etc.
 4. Verificar slide 1 antes de continuar o batch.
 
 ---
 
-### Tarefa 5: Encerramento
+### Tarefa 5: Sex-CCTA — Carrossel Isca Digital Premium Dark Roxo
+
+1. Ler `pipeline/data/template-reference.html` como modelo (mesmo template do Seg-CT).
+2. Ler `lead-magnet-ideas.md` para extrair a **palavra do CTA** — usar exatamente essa palavra no último slide.
+3. Para cada slide do Sex-CCTA:
+   a. Criar HTML baseado no template Premium Dark (fundo roxo/preto, paleta #7B2FBE / #A855F7)
+   b. Aplicar accent keywords em `color: #A855F7`
+   c. **Header:** logo branco centralizado (`height: 112px`); tag no canto superior direito
+   d. **Eyebrow:** `font-size: 30px`
+   e. **Conteúdo:** iniciar em `top: 220px`
+   f. **Botão ARRASTE:** `← ARRASTE` (seta à ESQUERDA), mesmo estilo do Seg-CT
+   g. **Slide CTA (último):** "Comenta [PALAVRA] aqui embaixo e receba [referência genérica ao material]" — PALAVRA extraída de `lead-magnet-ideas.md`
+   h. Salvar como `_html/{SLUG}-ccta-slide-01.html`, `_html/{SLUG}-ccta-slide-02.html`, etc.
+4. Renderizar cada slide:
+   - `browser_resize` → 1080 × 1440
+   - `browser_take_screenshot` → `Posts/{SLUG}-ccta-slide-01.png`, etc.
+5. Verificar slide 1 antes de continuar o batch.
+
+---
+
+### Tarefa 6: Encerramento
 
 1. Parar servidor HTTP: `pkill -f "http.server 8765" 2>/dev/null || true`
 2. Listar todos os PNGs gerados em `Posts/`.
-3. Confirmar contagem: 3 single posts + N slides do carrossel.
+3. Confirmar contagem: 3 single posts + N slides do Seg-CT + N slides do Sex-CCTA.
 
 ## Output Format
 
@@ -156,13 +186,26 @@ POST ÚNICOS (1080×1350):
 - {slug}-single-post-2.png ✅ — Carvão/Roxo Claro | {headline}
 - {slug}-single-post-3.png ✅ — Branco/Lavanda | {headline}
 
-CARROSSEL (1080×1440):
+Seg-CT — CARROSSEL TUTORIAL (1080×1440):
 - {slug}-slide-01.png ✅ — Capa
 - {slug}-slide-02.png ✅
 [...]
-- {slug}-slide-NN.png ✅ — CTA
+- {slug}-slide-NN.png ✅ — CTA (salvar)
 
-Total: 3 posts únicos + N slides de carrossel
+Sex-CCTA — CARROSSEL ISCA DIGITAL (1080×1440):
+- {slug}-ccta-slide-01.png ✅ — Capa
+- {slug}-ccta-slide-02.png ✅
+[...]
+- {slug}-ccta-slide-NN.png ✅ — CTA (comentar [PALAVRA])
+
+Total: 3 posts únicos + N slides de Seg-CT + N slides de Sex-CCTA
+
+HTMLs de renderização salvos em output/{run-id}/_html/:
+- {slug}-single-post-1.html
+- {slug}-single-post-2.html
+- {slug}-single-post-3.html
+- {slug}-slide-01.html a {slug}-slide-NN.html
+- {slug}-ccta-slide-01.html a {slug}-ccta-slide-NN.html
 ```
 
 ## Quality Criteria
@@ -170,10 +213,12 @@ Total: 3 posts únicos + N slides de carrossel
 - [ ] Post 1: template roxo/preto, foto Dr. Jeorge selecionada no step-05, logo branco 92px
 - [ ] Post 2: template carvão/roxo-claro (#C084FC), imagem IA (ou placeholder), CTA pede like
 - [ ] Post 3: template branco/lavanda, 100% tipográfico, quote box presente, **logo colorido**, CTA pede seguir
-- [ ] Carrossel: logo 112px centralizado, eyebrow 30px, conteúdo top:220px, botão `← ARRASTE` estilo transparente branco, slides 1080×1440
+- [ ] Seg-CT: logo 112px centralizado, eyebrow 30px, conteúdo top:220px, botão `← ARRASTE` estilo transparente branco, slides 1080×1440
+- [ ] Sex-CCTA: mesmo padrão visual do Seg-CT, CTA do último slide usa palavra extraída de `lead-magnet-ideas.md`, arquivos nomeados com prefixo `-ccta-slide-`
 - [ ] Todos os posts únicos: 1080×1350
 - [ ] Card de conteúdo centralizado (bottom: 240px) em todos os posts únicos
 - [ ] Todos os arquivos nomeados com prefixo `{slug}-`
+- [ ] PNGs salvos em `Posts/`, HTMLs salvos em `_html/` — pastas separadas
 - [ ] Servidor HTTP parado após o último slide
 
 ## Veto Conditions
@@ -182,6 +227,8 @@ Total: 3 posts únicos + N slides de carrossel
 2. Post 2 usa logo colorido (deve ser logo branco — fundo escuro)
 3. Post 3 usa logo branco em vez do logo colorido (fundo claro exige logo colorido)
 4. Post 3 tem foto de pessoa (deve ser 100% texto)
-5. Carrossel usa seta `ARRASTE →` (deve ser `← ARRASTE`)
-6. Algum PNG não foi gerado
+5. Seg-CT usa seta `ARRASTE →` (deve ser `← ARRASTE`)
+6. Sex-CCTA usa seta `ARRASTE →` (deve ser `← ARRASTE`)
+7. Sex-CCTA com CTA usando palavra diferente da registrada em `lead-magnet-ideas.md`
+8. Algum PNG não foi gerado
 7. Arquivos gerados sem prefixo do slug (ex: `single-post-1.png` em vez de `{slug}-single-post-1.png`)

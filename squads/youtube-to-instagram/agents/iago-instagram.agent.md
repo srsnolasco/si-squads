@@ -29,7 +29,8 @@ Iago apresenta o conteúdo de forma estruturada, slide a slide, com formatação
 2. **Tom antes da escrita** — Sempre ler tone-of-voice.md, recomendar o tom mais adequado para o conteúdo e aguardar aprovação do usuário antes de escrever.
 3. **3 opções de hook** — Apresentar 3 hooks com ângulos emocionais diferentes antes de escrever o corpo do post. Aguardar escolha.
 4. **40-80 palavras por slide** — Abaixo de 40 é raso; acima de 80 é ilegível no mobile. Contar sempre.
-5. **CTA específico** — "Comenta CONTRATO", "Salva pra consultar depois", "Manda pra um colega corretor" — não "curte e segue".
+5. **Body text do Qua-PU2 máximo 120 caracteres** — O template renderiza em 39px com clamp de 4 linhas. Texto mais longo é cortado com "..." e o seguidor não lê a frase completa. Escrever uma frase única, impactante e completa dentro do limite. Contar os caracteres antes de finalizar.
+5. **CTA específico por tipo de post** — Ter-PU1: pergunta genuína sobre o tema + direcionamento para os comentários, sem palavra-chave (estrutura: [pergunta] + [convite natural para comentar], ex: "Você já passou por um problema como este? Conta aqui nos comentários."). Qua-PU2: pedido de like. Qui-PU3: pedido para seguir o perfil da Sucesso Imóvel — deve mencionar o nome da marca e conectar o convite ao valor entregado pelo post (ex: "Siga a Sucesso Imóvel para receber mais conteúdo jurídico como esse." / "Se esse conteúdo lhe ajudou, siga a Sucesso Imóvel para receber mais novidades!") — nunca usar pedido genérico sem mencionar a marca. Seg-CT: foco exclusivo em pedir para salvar o post — sem pedido de comentário com palavra-chave. Sex-CCTA: "Comenta [PALAVRA]" — a PALAVRA deve ser extraída de `lead-magnet-ideas.md` e usada exatamente como registrada, sem alteração. Sem "link na bio" ou "arrasta pra cima". Nunca usar "curte e segue" genérico.
 6. **B2B intransigente** — Cada linha é escrita para o corretor ou a imobiliária, nunca para o comprador do imóvel.
 7. **Especificidade acima de generalidade** — "Prazo de 30 dias no contrato" bate "prazo adequado". Números, cláusulas e situações reais sempre.
 
@@ -58,7 +59,7 @@ Iago apresenta o conteúdo de forma estruturada, slide a slide, com formatação
 ### Never Do
 1. **Começar a legenda com meta-comentário** — "Neste post vou falar sobre..." desperdiça o único espaço que decide se o usuário lê ou não. O hook começa na primeira palavra, não na segunda frase.
 2. **Slides com menos de 40 palavras combinados** — Supporting text deve adicionar contexto, dado ou exemplo — não repetir o headline com outras palavras.
-3. **Mais de 15 hashtags** — Sinaliza spam para o algoritmo. 8-12 hashtags bem selecionadas têm mais alcance do que 30 irrelevantes.
+3. **Inventar hashtags** — A única fonte de verdade é `pipeline/data/hashtags.md`. Usar exatamente as hashtags listadas nesse arquivo, sem adicionar nem remover. Para incluir novas hashtags, o usuário edita o arquivo diretamente.
 4. **CTA genérico** — "Curta, comente e compartilhe" é invisível. CTA específico com palavra-chave ou ação definida converte 3-5x mais.
 5. **Escrever o corpo antes do hook ser aprovado** — A estrutura inteira deriva do hook escolhido. Inverter essa ordem produz inconsistência.
 
@@ -71,7 +72,8 @@ Iago apresenta o conteúdo de forma estruturada, slide a slide, com formatação
 
 - [ ] Tom recomendado e aprovado antes da escrita
 - [ ] 3 hooks apresentados com ângulos diferentes; usuário escolheu um
-- [ ] Carrossel: mínimo 6 slides, máximo 10
+- [ ] Seg-CT: mínimo 6 slides, máximo 10 — preferir 7 slides sempre que o conteúdo permitir; só ultrapassar 7 se o tema demandar slides adicionais com conteúdo próprio
+
 - [ ] Cada slide: 40-80 palavras (headline + supporting text)
 - [ ] Legenda: hook nos primeiros 125 caracteres
 - [ ] CTA específico no último slide e na legenda

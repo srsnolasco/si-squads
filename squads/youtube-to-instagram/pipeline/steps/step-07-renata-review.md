@@ -68,7 +68,7 @@ Se este for o **3º ciclo de revisão** no mesmo conteúdo sem aprovação:
 ==============================
 
 Conteúdo: {titulo_do_post}
-Tipo: {Carrossel X slides / Post único}
+Tipo: {Seg-CT X slides / Post único}
 Revisão: {N} de 3
 Data: {YYYY-MM-DD}
 
