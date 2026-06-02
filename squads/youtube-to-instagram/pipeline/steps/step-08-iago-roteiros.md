@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Roteiros/
 ---
 
-# Step 04b: Iago Instagram — Criação dos Roteiros
+# Step 08: Iago Instagram — Criação dos Roteiros
 
 Iago cria o roteiro de vídeo para YouTube com base no relatório de análise gerado no step 3. O roteiro deve incorporar as melhorias identificadas na análise — não é uma transcrição do vídeo original, mas uma versão aprimorada dele.
 

@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Roteiros/
 ---
 
-# Step 04e: Iago Instagram — Roteiros de Reels Virais
+# Step 12: Iago Instagram — Roteiros de Reels Virais
 
 Iago cria 6 roteiros de Reel Viral — um por dia de publicação (Dom, Seg, Ter, Qua, Qui, Sex). Cada roteiro usa a estrutura de 7 blocos obrigatórios e deriva seu ângulo do post correspondente ao dia.
 

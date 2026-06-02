@@ -1,8 +1,8 @@
 name: "YouTube → Instagram"
 code: "youtube-to-instagram"
-description: "Transforma vídeos (YouTube ou arquivo local) em 3 posts únicos + 1 carrossel para o Instagram + roteiro YouTube + 5 roteiros Reels da Sucesso Imóvel."
+description: "Transforma vídeos (YouTube ou arquivo local) em um calendário semanal completo para o Instagram da Sucesso Imóvel: 5 posts (Seg-CT, Ter-PU1, Qua-PU2, Qui-PU3, Sex-CCTA), isca digital em PDF, roteiro YouTube, 6 roteiros de Reels virais, 7 roteiros de Stories diários e um dashboard semanal unificado."
 icon: "🎬"
-version: "2.0.0"
+version: "3.0.0"
 language: "Português (Brasil)"
 
 company: "_opensquad/_memory/company.md"
@@ -29,38 +29,60 @@ data:
   - _templates/single-post-3-template.html
 
 output_structure:
-  posts_per_run: 4
+  posts_per_run: 5
   post_types:
-    - id: single-post-1
-      name: "Post Único 1 — Dr. Jeorge"
+    - id: seg-ct
+      name: "Seg-CT — Carrossel Tutorial"
+      template: pipeline/data/template-reference.html
+      palette: "Premium Dark Roxo"
+      cta: "Salvar o post"
+      angle: "Tutorial/Aprofundamento — o como funciona"
+      dimensions: "1080x1440"
+      slides: "6-10 (preferir 7)"
+    - id: ter-pu1
+      name: "Ter-PU1 — Post Único com foto Dr. Jeorge"
       template: _templates/single-post-template.html
       palette: "Roxo/Preto"
-      cta: "Comentar"
+      logo: "SI-Logo-Branco-Transp.png"
+      cta: "Pergunta genuína + comentários"
       angle: "Principal — tema central"
       dimensions: "1080x1350"
-    - id: single-post-2
-      name: "Post Único 2 — Imagem IA"
+    - id: qua-pu2
+      name: "Qua-PU2 — Post Único com imagem IA"
       template: _templates/single-post-2-template.html
       palette: "Carvão/Roxo Claro (#C084FC)"
       logo: "SI-Logo-Branco-Transp.png"
       cta: "Deixar like"
       angle: "Impacto/Consequência"
       dimensions: "1080x1350"
-    - id: single-post-3
-      name: "Post Único 3 — Só texto"
+      body_max_chars: 120
+    - id: qui-pu3
+      name: "Qui-PU3 — Post Único só texto"
       template: _templates/single-post-3-template.html
       palette: "Branco/Lavanda/Roxo Escuro"
       logo: "SI-Logo-Color-Transp.png"
-      cta: "Seguir no Instagram"
+      cta: "Seguir a Sucesso Imóvel"
       angle: "Reflexão/Princípio"
       dimensions: "1080x1350"
-    - id: carousel
-      name: "Carrossel"
+      body_max_chars: 120
+    - id: sex-ccta
+      name: "Sex-CCTA — Carrossel Isca Digital"
       template: pipeline/data/template-reference.html
       palette: "Premium Dark Roxo"
-      cta: "Comentar palavra-chave"
-      angle: "Tutorial/Aprofundamento"
+      cta: "Comentar palavra-chave (da isca digital)"
+      angle: "Isca digital — incentivar download do material"
       dimensions: "1080x1440"
+      slides: "6-10 (preferir 7)"
+
+deliverables:
+  - "Relatório de análise do vídeo (MD + HTML, 8 seções)"
+  - "Isca digital (MD + PDF)"
+  - "Roteiro YouTube (MD + HTML)"
+  - "5 posts (Seg-CT, Ter-PU1, Qua-PU2, Qui-PU3, Sex-CCTA) em PNG"
+  - "6 roteiros de Reels virais (MD + HTML unificado)"
+  - "7 roteiros de Stories diários (MD + HTML semanal)"
+  - "3 prompts de imagem IA (Google Imagen)"
+  - "Dashboard semanal HTML auto-suficiente"
 
 agents:
   - id: yago-video

@@ -2,11 +2,11 @@
 type: agent
 agent: iago-instagram
 execution: inline
-inputFile: squads/youtube-to-instagram/output/approved-ideas.md
-outputFile: squads/youtube-to-instagram/output/Posts/post-content.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/approved-ideas.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 ---
 
-# Step 04: Iago Instagram — Criação do Conteúdo
+# Step 11: Iago Instagram — Criação do Conteúdo
 
 Iago Instagram transforma as ideias aprovadas em conteúdo completo para **5 posts**: 3 posts únicos, 1 Seg-CT e 1 Sex-CCTA.
 
@@ -30,9 +30,9 @@ O squad produz **5 posts** a cada run:
 
 | Post | Tipo | Ângulo | CTA | Layout |
 |------|------|--------|-----|--------|
-| Ter-PU1 | Post único + foto Dr. Jeorge | Principal — tema central do vídeo | Comentar | Roxo/Preto (template v10) |
-| Qua-PU2 | Post único + imagem IA | Impacto/consequência — o "e agora?" | Deixar like | Azul/Ciano (template 2) |
-| Qui-PU3 | Post único — só texto | Reflexão/princípio — o "por que isso importa" | Seguir no Instagram | Esmeralda/Dourado (template 3) |
+| Ter-PU1 | Post único + foto Dr. Jeorge | Principal — tema central do vídeo | Pergunta genuína + comentários | Roxo/Preto |
+| Qua-PU2 | Post único + imagem IA | Impacto/consequência — o "e agora?" | Deixar like | Carvão/Roxo Claro |
+| Qui-PU3 | Post único — só texto | Reflexão/princípio — o "por que isso importa" | Seguir a Sucesso Imóvel | Branco/Lavanda |
 | Seg-CT | Carrossel Tutorial — N slides | Tutorial/aprofundamento — o "como funciona" | Salvar o post | Premium Dark roxo |
 | Sex-CCTA | Carrossel — N slides | Isca digital — incentivar download do material | Comentar [PALAVRA] | Premium Dark roxo |
 
@@ -72,7 +72,7 @@ O squad produz **5 posts** a cada run:
 - **Template:** `_templates/single-post-2-template.html`
 - **Eyebrow:** (ex: "Impacto Prático")
 - **Tag:** área + tema
-- **Prompt para imagem IA:** criar um prompt em inglês para gerar a imagem via nano banana / DALL-E. O prompt deve descrever uma cena visual abstrata ou metáfora visual que represente o tema (ex: para STJ Tema 1.266 — "a padlock overlapping a real estate building, dark cinematic lighting, professional photography, abstract concept of legal protection"). **OBRIGATÓRIO: finalizar SEMPRE com** `absolutely no text, no words, no letters, no signs, no stamps, no labels anywhere in the image — purely visual, zero typography`. Salvar o prompt em `output/ai-image-prompt-post2.md`.
+- **Prompt para imagem IA:** criar um prompt em inglês para gerar a imagem via nano banana / DALL-E. O prompt deve descrever uma cena visual abstrata ou metáfora visual que represente o tema (ex: para STJ Tema 1.266 — "a padlock overlapping a real estate building, dark cinematic lighting, professional photography, abstract concept of legal protection"). **OBRIGATÓRIO: finalizar SEMPRE com** `absolutely no text, no words, no letters, no signs, no stamps, no labels anywhere in the image — purely visual, zero typography`. Salvar o prompt em `output/{run-id}/ai-image-prompt-post2.md`.
 
 #### Qui-PU3 — Só texto | Ângulo: Reflexão/Princípio
 
@@ -110,7 +110,7 @@ O squad produz **5 posts** a cada run:
 
 ## Output Format
 
-Salvar em `output/Posts/post-content.md`:
+Salvar em `output/{run-id}/Posts/post-content.md`:
 
 ```markdown
 # Post Content — {título geral da série}
@@ -148,7 +148,7 @@ Data: {YYYY-MM-DD}
 **Body text:** {HTML}
 **Badge text:** {texto}
 **CTA text:** {deve ser pedido de like}
-**Prompt IA (nano banana):** ver output/ai-image-prompt-post2.md
+**Prompt IA (nano banana):** ver output/{run-id}/ai-image-prompt-post2.md
 **Tom de voz:** {tom escolhido}
 
 ### Legenda
@@ -218,13 +218,13 @@ Data: {YYYY-MM-DD}
 - [ ] Qui-PU3: CTA é pedido para seguir no Instagram mencionando a Sucesso Imóvel pelo nome
 - [ ] Sex-CCTA: CTA usa "Comenta [PALAVRA]" — PALAVRA idêntica à registrada em `lead-magnet-ideas.md`
 - [ ] Sex-CCTA: sem "link na bio" ou "arrasta pra cima" no CTA
-- [ ] Qua-PU2: prompt para imagem IA salvo em `output/ai-image-prompt-post2.md`
+- [ ] Qua-PU2: prompt para imagem IA salvo em `output/{run-id}/ai-image-prompt-post2.md`
 - [ ] Quote text do Qui-PU3 é impactante e curto (máx. 2 frases)
 - [ ] Todos os hooks têm no máximo 125 caracteres
 - [ ] Body text do Qua-PU2 tem no máximo 120 caracteres (contados) — frase completa, sem corte
 - [ ] Body text do Qui-PU3 tem no máximo 120 caracteres (contados) — frase completa, sem corte
 - [ ] Todo conteúdo rastreável à análise do vídeo em `youtube-analysis.md`
-- [ ] `output/Posts/post-content.md` salvo antes de encerrar
+- [ ] `output/{run-id}/Posts/post-content.md` salvo antes de encerrar
 - [ ] Hashtags de todos os posts são exatamente as listadas em `pipeline/data/hashtags.md` — sem adicionar ou remover
 - [ ] **ZERO emojis** em qualquer campo de qualquer post — headline, body, badge, CTA, legenda, hashtags
 

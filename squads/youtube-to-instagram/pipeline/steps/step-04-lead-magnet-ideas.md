@@ -7,7 +7,7 @@ outputFile: squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md
 model_tier: powerful
 ---
 
-# Step: Yago Vídeo — Ideias de Isca Digital
+# Step 04: Yago Vídeo — Ideias de Isca Digital
 
 Yago lê o relatório de análise do vídeo e propõe exatamente 3 ideias de isca digital relacionadas ao tema principal. O usuário aprova 1 ideia no próximo checkpoint para criação.
 

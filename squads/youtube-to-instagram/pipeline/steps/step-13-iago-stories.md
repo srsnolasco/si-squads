@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Stories/
 ---
 
-# Step: Iago Instagram — Roteiros de Stories Diários
+# Step 13: Iago Instagram — Roteiros de Stories Diários
 
 Iago cria os roteiros de Stories para todos os dias da semana. Cada story tem horário definido, tipo editorial, texto sugerido, sticker obrigatório e CTA. O conteúdo de cada story referencia o post e o reel do dia correspondente.
 

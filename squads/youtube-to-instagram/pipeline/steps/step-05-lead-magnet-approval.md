@@ -3,7 +3,7 @@ type: checkpoint
 inputFile: squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md
 ---
 
-# Step: Aprovação da Isca Digital
+# Step 05: Aprovação da Isca Digital
 
 O usuário revisa as 3 ideias de isca digital geradas por Yago e aprova **exatamente 1** para criação.
 

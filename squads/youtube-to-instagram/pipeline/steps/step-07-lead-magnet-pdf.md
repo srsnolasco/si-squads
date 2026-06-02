@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/Lead-Magnets/
 outputFile: squads/youtube-to-instagram/output/{run-id}/Lead-Magnets/
 ---
 
-# Step: Diego Design — Geração de PDF das Iscas Digitais
+# Step 07: Diego Design — Geração do PDF da Isca Digital
 
 Diego gera um PDF profissional para a isca digital criada no step anterior. O design é limpo e formal — adequado para um documento entregue via DM — usando a identidade visual da Sucesso Imóvel.
 

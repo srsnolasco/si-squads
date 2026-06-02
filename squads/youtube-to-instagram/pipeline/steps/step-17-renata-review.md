@@ -2,22 +2,24 @@
 type: agent
 agent: renata-revisao
 execution: inline
-inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
-outputFile: squads/youtube-to-instagram/output/review.md
-on_reject: 4
+inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/review.md
+on_reject: 11
 ---
 
-# Step 07: Renata Revisão — Quality Review
+# Step 17: Renata Revisão — Quality Review
 
-Renata Revisão avalia o conteúdo textual e as imagens renderizadas contra os critérios de qualidade definidos, emitindo um veredito estruturado.
+Renata Revisão avalia o conteúdo textual e as imagens renderizadas dos 5 posts contra os critérios de qualidade definidos, emitindo um veredito estruturado.
 
 ## Context Loading
 
 Antes de iniciar, Renata deve carregar:
-- `squads/youtube-to-instagram/output/Posts/post-content.md` — Texto completo dos slides, legenda e hashtags
-- `squads/youtube-to-instagram/output/Posts/` — PNGs renderizados (verificação visual)
+- `squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md` — Texto completo dos 5 posts, legendas e hashtags
+- `squads/youtube-to-instagram/output/{run-id}/Posts/` — PNGs renderizados (verificação visual)
 - `squads/youtube-to-instagram/pipeline/data/quality-criteria.md` — Critérios e thresholds de avaliação
-- `squads/youtube-to-instagram/output/youtube-analysis.md` — Análise do vídeo (fonte de verdade para verificar aderência)
+- `squads/youtube-to-instagram/pipeline/data/hashtags.md` — Lista oficial de hashtags (fonte de verdade)
+- `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (verificar palavra do CTA do Sex-CCTA)
+- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Análise do vídeo (fonte de verdade para verificar aderência)
 
 ## Instructions
 
@@ -30,15 +32,18 @@ Antes de iniciar, Renata deve carregar:
 5. Verificar hard rejection triggers:
    - Dado inventado (não rastreável ao vídeo) → REJEITAR imediatamente
    - CTA ausente ou genérico no último slide → REJEITAR imediatamente
-6. Contar palavras de cada slide (headline + supporting text combinados):
+6. Contar palavras de cada slide de carrossel (Seg-CT e Sex-CCTA — headline + supporting text combinados):
    - Slides < 40 palavras → REJEITAR
    - Slides > 80 palavras → sinalizar como Suggestion (não-bloqueante)
-7. Calcular média geral. Aplicar regra de decisão:
+7. Verificar o body text dos posts únicos Qua-PU2 e Qui-PU3:
+   - Body text > 120 caracteres → REJEITAR (o template corta o texto com "...")
+8. Verificar a consistência da palavra do CTA do Sex-CCTA com a registrada em `lead-magnet-ideas.md` — divergência → REJEITAR.
+9. Calcular média geral. Aplicar regra de decisão:
    - >= 7.0 + nenhum score < 4 → APROVAR
    - >= 7.0 + algum score entre 4-6 → APROVAR CONDICIONAL
    - < 7.0 → REJEITAR
-8. Redigir o review estruturado com tabela de scores, feedback detalhado e veredito final.
-9. Salvar em `output/review.md`.
+10. Redigir o review estruturado com tabela de scores, feedback detalhado e veredito final.
+11. Salvar em `output/{run-id}/review.md`.
 
 ### Critérios Avaliados
 
@@ -51,7 +56,9 @@ Antes de iniciar, Renata deve carregar:
 | CTA e engajamento | CTA específico, pergunta de engajamento presente |
 | Aderência ao vídeo | Todo dado rastreável ao vídeo analisado |
 | Identidade visual | Template C Premium Dark consistente, accent keywords em roxo |
-| Hashtags | 10-15 tags, mix relevante, #sucessoimovel presente |
+| Body text PU2/PU3 | Máximo 120 caracteres — frase completa, sem corte com "..." |
+| CTA por tipo de post | Seg-CT salvar · Ter-PU1 pergunta+comentários · Qua-PU2 like · Qui-PU3 seguir SI · Sex-CCTA comentar palavra da isca |
+| Hashtags | Exatamente as listadas em `pipeline/data/hashtags.md` — sem adicionar nem remover |
 
 ### Regra de Escalada
 
@@ -67,8 +74,8 @@ Se este for o **3º ciclo de revisão** no mesmo conteúdo sem aprovação:
  REVIEW VEREDITO: {APROVAR / REJEITAR / APROVAR CONDICIONAL}
 ==============================
 
-Conteúdo: {titulo_do_post}
-Tipo: {Seg-CT X slides / Post único}
+Conteúdo: {titulo da série — 5 posts}
+Posts avaliados: Seg-CT · Ter-PU1 · Qua-PU2 · Qui-PU3 · Sex-CCTA
 Revisão: {N} de 3
 Data: {YYYY-MM-DD}
 
@@ -84,6 +91,8 @@ Data: {YYYY-MM-DD}
 | CTA e engajamento           | X/10  | {justificativa_breve}           |
 | Aderência ao vídeo          | X/10  | {justificativa_breve}           |
 | Identidade visual           | X/10  | {justificativa_breve}           |
+| Body text PU2/PU3 (≤120)    | X/10  | {justificativa_breve}           |
+| CTA por tipo de post        | X/10  | {justificativa_breve}           |
 | Hashtags                    | X/10  | {justificativa_breve}           |
 ------------------------------
  MÉDIA GERAL: X.X/10
@@ -101,12 +110,15 @@ VEREDITO: {APROVAR / REJEITAR / APROVAR CONDICIONAL} — {justificativa_de_uma_l
 ## Quality Criteria
 
 - [ ] Todos os critérios foram avaliados e têm score com justificativa
-- [ ] Contagem de palavras de cada slide verificada explicitamente
+- [ ] Contagem de palavras dos slides de carrossel verificada explicitamente
+- [ ] Body text de Qua-PU2 e Qui-PU3 verificado (≤ 120 caracteres)
+- [ ] Palavra do CTA do Sex-CCTA conferida contra `lead-magnet-ideas.md`
+- [ ] Hashtags conferidas contra `pipeline/data/hashtags.md`
 - [ ] Hard rejection triggers verificados (dado inventado, CTA ausente, slide < 40 palavras)
 - [ ] Pelo menos um "Strength:" presente no feedback
 - [ ] Required changes e Suggestions não-bloqueantes estão claramente separados
 - [ ] Veredito final é inequívoco e justificado em uma linha
-- [ ] `output/review.md` salvo antes de encerrar
+- [ ] `output/{run-id}/review.md` salvo antes de encerrar
 
 ## Veto Conditions
 

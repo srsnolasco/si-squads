@@ -4,7 +4,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/review.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/final-approval.md
 ---
 
-# Step 19: Aprovação Final
+# Step 18: Aprovação Final
 
 O conteúdo foi revisado por Renata Revisão. Este é o resultado final do squad para este ciclo.
 

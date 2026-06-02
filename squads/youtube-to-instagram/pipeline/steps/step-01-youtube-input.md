@@ -7,14 +7,14 @@ outputFile: squads/youtube-to-instagram/output/youtube-focus.md
 
 Bem-vindo ao squad **YouTube → Instagram** da Sucesso Imóvel.
 
-Este squad transforma um vídeo em posts prontos para o Instagram — carrossel, posts únicos, roteiro YouTube e roteiros Reels.
+Este squad transforma um vídeo em um calendário semanal completo para o Instagram: 5 posts (2 carrosséis + 3 posts únicos), isca digital em PDF, roteiro YouTube, 6 roteiros de Reels virais, 7 roteiros de Stories diários e um dashboard semanal.
 
 **Como funciona:**
 1. Você seleciona o vídeo (arquivo local ou URL do YouTube)
-2. O squad transcreve e analisa o conteúdo
-3. Sugere ideias de posts para aprovação
-4. Cria o conteúdo completo e gera as imagens
-5. Você revisa o resultado final
+2. O squad transcreve e analisa o conteúdo, gerando um relatório completo
+3. Você aprova a isca digital e as ideias de posts
+4. O squad cria todo o conteúdo da semana e gera as imagens
+5. Você revisa o resultado final e recebe o dashboard semanal
 
 ---
 

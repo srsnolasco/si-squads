@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Prompts/media-prompts.md
 ---
 
-# Step 04c: Iago Instagram — Geração de Prompts Imagen (nano-banana)
+# Step 14: Iago Instagram — Geração de Prompts Imagen (nano-banana)
 
 Iago cria **3 prompts para geração de posts completos no Google Imagen (nano-banana)**.
 

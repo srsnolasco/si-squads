@@ -6,7 +6,7 @@ inputFile: squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Lead-Magnets/
 ---
 
-# Step: Iago Instagram — Criação da Isca Digital
+# Step 06: Iago Instagram — Criação da Isca Digital
 
 Iago cria o conteúdo completo da isca digital aprovada pelo usuário no checkpoint anterior. Gera um único arquivo Markdown com o documento completo, pronto para ser formatado em PDF.
 

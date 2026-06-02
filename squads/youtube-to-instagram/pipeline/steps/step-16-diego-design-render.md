@@ -2,19 +2,19 @@
 type: agent
 agent: diego-design
 execution: subagent
-inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Posts/
 skill: image-creator
 ---
 
-# Step 06: Diego Design — Criação e Renderização dos Posts
+# Step 16: Diego Design — Criação e Renderização dos Posts
 
 Diego Design transforma o conteúdo aprovado em imagens PNG para os 5 posts: 3 posts únicos, 1 Seg-CT e 1 Sex-CCTA.
 
 ## Context Loading
 
 Antes de iniciar, Diego deve carregar:
-- `squads/youtube-to-instagram/output/Posts/post-content.md` — Conteúdo aprovado
+- `squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md` — Conteúdo aprovado
 - `squads/youtube-to-instagram/pipeline/data/visual-identity.md` — Identidade visual
 - `squads/youtube-to-instagram/pipeline/data/template-reference.html` — Template Seg-CT Premium Dark
 - `squads/youtube-to-instagram/_templates/single-post-template.html` — Template Ter-PU1 (roxo)

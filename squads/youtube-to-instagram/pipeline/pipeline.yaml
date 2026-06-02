@@ -15,101 +15,101 @@ steps:
 
   - step: 3
     name: yago-video-analysis
-    file: steps/step-02-yago-video-analysis.md
+    file: steps/step-03-yago-video-analysis.md
     type: agent
     agent: yago-video
     execution: subagent
 
   - step: 4
     name: yago-lead-magnet-ideas
-    file: steps/step-lead-magnet-ideas.md
+    file: steps/step-04-lead-magnet-ideas.md
     type: agent
     agent: yago-video
     execution: subagent
 
   - step: 5
     name: lead-magnet-approval
-    file: steps/step-lead-magnet-approval.md
+    file: steps/step-05-lead-magnet-approval.md
     type: checkpoint
 
   - step: 6
     name: iago-lead-magnet-creation
-    file: steps/step-lead-magnet-creation.md
+    file: steps/step-06-lead-magnet-creation.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 7
     name: diego-lead-magnet-pdf
-    file: steps/step-lead-magnet-pdf.md
+    file: steps/step-07-lead-magnet-pdf.md
     type: agent
     agent: diego-design
     execution: subagent
 
   - step: 8
     name: iago-roteiros
-    file: steps/step-04b-iago-roteiros.md
+    file: steps/step-08-iago-roteiros.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 9
     name: yago-post-ideas
-    file: steps/step-03-yago-post-ideas.md
+    file: steps/step-09-yago-post-ideas.md
     type: agent
     agent: yago-video
     execution: subagent
 
   - step: 10
     name: ideas-approval
-    file: steps/step-03-ideas-approval.md
+    file: steps/step-10-ideas-approval.md
     type: checkpoint
 
   - step: 11
     name: iago-content-creation
-    file: steps/step-04-iago-content-creation.md
+    file: steps/step-11-iago-content-creation.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 12
     name: iago-reel-viral
-    file: steps/step-04e-iago-reel-viral.md
+    file: steps/step-12-iago-reel-viral.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 13
     name: iago-stories
-    file: steps/step-iago-stories.md
+    file: steps/step-13-iago-stories.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 14
     name: iago-media-prompts
-    file: steps/step-04c-iago-media-prompts.md
+    file: steps/step-14-iago-media-prompts.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 15
     name: iago-post-content-html
-    file: steps/step-04d-post-content-html.md
+    file: steps/step-15-post-content-html.md
     type: agent
     agent: iago-instagram
     execution: inline
 
   - step: 16
     name: diego-design-render
-    file: steps/step-06-diego-design-render.md
+    file: steps/step-16-diego-design-render.md
     type: agent
     agent: diego-design
     execution: subagent
 
   - step: 17
     name: renata-review
-    file: steps/step-07-renata-review.md
+    file: steps/step-17-renata-review.md
     type: agent
     agent: renata-revisao
     execution: inline
@@ -117,12 +117,12 @@ steps:
 
   - step: 18
     name: final-approval
-    file: steps/step-08-final-approval.md
+    file: steps/step-18-final-approval.md
     type: checkpoint
 
   - step: 19
     name: dashboard-html
-    file: steps/step-dashboard-html.md
+    file: steps/step-19-dashboard-html.md
     type: agent
     agent: iago-instagram
     execution: inline

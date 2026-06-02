@@ -7,7 +7,7 @@ outputFile: squads/youtube-to-instagram/output/{run-id}/post-ideas.md
 model_tier: powerful
 ---
 
-# Step 04: Yago Vídeo — Geração de Ideias de Posts
+# Step 09: Yago Vídeo — Geração de Ideias de Posts
 
 Yago Vídeo lê o relatório de análise do vídeo e gera exatamente 5 ideias de posts — uma por tipo de post do squad.
 
