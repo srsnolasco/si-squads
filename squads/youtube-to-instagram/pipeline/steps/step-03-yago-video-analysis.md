@@ -10,7 +10,7 @@ run_id_slug: true
 
 # Step 03: Yago Vídeo — Análise do Conteúdo
 
-Yago Vídeo analisa o conteúdo do vídeo (YouTube ou local transcrito) e produz um relatório completo em dois formatos: Markdown (`youtube-analysis.md`) e HTML visual (`youtube-analysis.html`).
+Yago Vídeo analisa o conteúdo da fonte selecionada (YouTube, vídeo local transcrito ou documento de texto) e produz um relatório completo em dois formatos: Markdown (`youtube-analysis.md`) e HTML visual (`youtube-analysis.html`).
 
 ## Context Loading
 
@@ -25,7 +25,8 @@ Antes de iniciar, Yago deve carregar:
 
 ### Analisar o Vídeo
 
-1. Ler `output/youtube-focus.md` para verificar `source_type` (youtube ou local) e o foco informado.
+1. Ler `output/youtube-focus.md` para verificar `source_type` (youtube, local ou document) e o foco informado.
+   - Se `focus: auto` — o usuário delegou a escolha do ângulo. Yago deve analisar o conteúdo completo e escolher autonomamente o ângulo de maior potencial para o público de corretores, justificando a escolha na seção de Informações Básicas do relatório.
 
 **Se `source_type: youtube`:**
 2. Usar `web_fetch` na URL do YouTube para obter: título, descrição, canal, duração, data de publicação.
@@ -35,6 +36,12 @@ Antes de iniciar, Yago deve carregar:
 2. Ler `output/video-transcript.md` para obter a transcrição completa do vídeo.
 3. O título do vídeo será o `file_name` sem extensão (formatar de forma legível, ex: "minha-aula.mp4" → "Minha Aula").
 4. Identificar os principais tópicos abordados com base na transcrição.
+
+**Se `source_type: document`:**
+2. Ler `output/video-transcript.md` para obter o conteúdo extraído do documento.
+3. O título será o `file_name` sem extensão (formatar de forma legível, ex: "roteiro-contrato.pdf" → "Roteiro Contrato").
+4. Identificar os principais tópicos abordados com base no texto extraído.
+5. Nas seções do relatório que mencionam "vídeo", adaptar a linguagem para "documento" quando aplicável (ex: "Análise do Documento" em vez de "Análise do Vídeo", "Análise do Hook do documento" etc.).
 
 **Ambos os casos — produzir relatório completo com as seguintes seções:**
 
@@ -307,7 +314,8 @@ O HTML deve ser auto-suficiente — sem dependências externas além do Google F
 ## Quality Criteria
 
 - [ ] Todas as 8 seções presentes e preenchidas no Markdown
-- [ ] Tópicos principais com dados rastreáveis ao vídeo
+- [ ] `source_type` identificado corretamente (youtube, local ou document)
+- [ ] Tópicos principais com dados rastreáveis ao conteúdo analisado
 - [ ] Pontos positivos e negativos com justificativa específica — sem generalidades
 - [ ] Hook avaliado com nota e justificativa
 - [ ] Mínimo de 3 insights-chave para corretores
@@ -319,7 +327,7 @@ O HTML deve ser auto-suficiente — sem dependências externas além do Google F
 
 ## Veto Conditions
 
-1. Dado ou trecho não rastreável ao vídeo analisado — dado inventado é recusa automática
+1. Dado ou trecho não rastreável ao conteúdo analisado (vídeo, transcrição ou documento) — dado inventado é recusa automática
 2. Qualquer das 8 seções ausente ou em branco (Markdown ou HTML)
 3. Pontos positivos/negativos sem justificativa específica ("o vídeo é bom" não é justificativa)
 4. HTML com layout quebrado ou seções faltando
