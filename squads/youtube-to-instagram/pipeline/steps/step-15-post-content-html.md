@@ -12,12 +12,12 @@ Iago gera um arquivo HTML completo e visualmente rico a partir do `post-content.
 
 ## Context Loading
 
-- `squads/youtube-to-instagram/output/Posts/post-content.md` — conteúdo dos 4 posts (já escrito)
+- `squads/youtube-to-instagram/output/Posts/post-content.md` — conteúdo dos 5 posts (já escrito)
 - `squads/youtube-to-instagram/pipeline/data/visual-identity.md` — paleta de cores e tipografia SI
 
 ## Objetivo
 
-Gerar `output/Posts/post-content.html` — um documento HTML auto-suficiente que apresenta os 4 posts (3 posts únicos + 1 Seg-CT) com:
+Gerar `output/Posts/post-content.html` — um documento HTML auto-suficiente que apresenta os 5 posts (3 posts únicos + 1 Seg-CT + 1 Sex-CCTA) com:
 - Design Premium Dark da Sucesso Imóvel
 - Cards individuais por post com todas as seções
 - Legenda e hashtags formatadas
@@ -551,6 +551,88 @@ Botão: ← ARRASTE</div>
       </div>
     </article>
 
+    <!-- ═══════════════════════════════════════════════════════════
+         SEX-CCTA — CARROSSEL ISCA DIGITAL
+    ═══════════════════════════════════════════════════════════ -->
+    <article class="post-card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="post-type-icon">🧲</div>
+          <div>
+            <div class="post-type-label">Sex-CCTA · {N} Slides</div>
+            <div class="post-title">{TÍTULO DO CARROSSEL ISCA}</div>
+          </div>
+        </div>
+        <div class="card-badges">
+          <span class="badge badge-tag">{TAG Sex-CCTA}</span>
+          <span class="badge badge-tom">Isca Digital</span>
+          <span class="badge badge-template">Premium Dark</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- Palavra do CTA -->
+        <div class="fields-grid">
+          <div class="field field-full">
+            <span class="field-label">Palavra do CTA</span>
+            <div class="cta-pill">{PALAVRA DO CTA — extraída de lead-magnet-ideas.md}</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Slides -->
+        <div>
+          <div class="section-label-lg">Slides</div>
+          <div class="slides-container">
+
+            <!-- Slide 1 — CAPA -->
+            <div class="slide-item">
+              <div class="slide-number">Slide 1 — Capa</div>
+              <div class="slide-headline">{HEADLINE CAPA CCTA}</div>
+              <div class="slide-body">Eyebrow: {EYEBROW CAPA CCTA}
+Subtítulo: {SUBTITULO CAPA CCTA}
+Botão: ← ARRASTE</div>
+            </div>
+
+            {SLIDES 2 a N-1 — repetir o bloco abaixo para cada slide de conteúdo:
+            <div class="slide-item">
+              <div class="slide-number">Slide N — {NOME DO SLIDE}</div>
+              <div class="slide-headline">{HEADLINE DO SLIDE}</div>
+              <div class="slide-body">{BODY TEXT DO SLIDE}</div>
+            </div>
+            }
+
+            <!-- Último Slide — CTA -->
+            <div class="slide-item" style="border-color: rgba(168,85,247,0.4); background: rgba(123,47,190,0.12);">
+              <div class="slide-number">Slide {N} — CTA</div>
+              <div class="slide-headline">{HEADLINE CTA CCTA}</div>
+              <div class="slide-body">{BLOCO CTA — "Comenta [PALAVRA] aqui embaixo e receba..."}</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div>
+          <div class="section-label-lg">Legenda</div>
+          <div class="caption-block">
+            <div class="caption-label section-label">Texto completo</div>
+            <div class="caption-text">{LEGENDA Sex-CCTA}</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label-lg">Hashtags</div>
+          <div class="hashtags-block">
+            {HASHTAGS Sex-CCTA}
+          </div>
+        </div>
+      </div>
+    </article>
+
   </main>
 
   <!-- PAGE FOOTER -->
@@ -575,9 +657,10 @@ Botão: ← ARRASTE</div>
 5. Para **hashtags**: separar cada uma e criar um `<span class="hashtag">` individual
 6. Para **legenda**: preservar as quebras de linha usando `white-space: pre-wrap` já aplicado no CSS
 7. Para **slides do Seg-CT**: criar um `<div class="slide-item">` para cada slide
-8. Para o **prompt da imagem IA**: incluir no campo correspondente do Qua-PU2 (ler de `output/ai-image-prompt-post2.md`)
-9. **Não alterar nenhum CSS** — apenas preencher o conteúdo
-10. Salvar em `output/Posts/post-content.html`
+8. Para **slides do Sex-CCTA**: criar um `<div class="slide-item">` para cada slide; incluir a **Palavra do CTA** extraída de `lead-magnet-ideas.md` no campo correspondente
+9. Para o **prompt da imagem IA**: incluir no campo correspondente do Qua-PU2 (ler de `output/ai-image-prompt-post2.md`)
+10. **Não alterar nenhum CSS** — apenas preencher o conteúdo
+11. Salvar em `output/Posts/post-content.html`
 
 ## Output
 
@@ -585,10 +668,11 @@ Salvar o arquivo HTML completo em `output/Posts/post-content.html`.
 
 ## Quality Criteria
 
-- [ ] Todos os 4 posts aparecem no HTML (Ter-PU1, Qua-PU2, Qui-PU3 e Seg-CT)
+- [ ] Todos os 5 posts aparecem no HTML (Ter-PU1, Qua-PU2, Qui-PU3, Seg-CT e Sex-CCTA)
 - [ ] Todos os campos do markdown estão presentes no HTML
 - [ ] Tags HTML do conteúdo (`<span class="accent">`, `<br>`) estão renderizadas corretamente
 - [ ] Cada hashtag é um elemento `<span class="hashtag">` separado
 - [ ] Quebras de linha da legenda estão preservadas
 - [ ] Prompt da imagem IA está incluído no card do Qua-PU2
+- [ ] Palavra do CTA do Sex-CCTA está presente no card correspondente
 - [ ] Arquivo salvo em `output/Posts/post-content.html`

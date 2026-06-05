@@ -2,7 +2,7 @@
 type: agent
 agent: yago-video
 execution: subagent
-inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md
 model_tier: powerful
 ---
@@ -14,7 +14,7 @@ Yago lê o relatório de análise do vídeo e propõe exatamente 3 ideias de isc
 ## Context Loading
 
 Antes de iniciar, Yago deve carregar:
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Relatório completo da análise do vídeo (**fonte principal**)
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Relatório completo da análise do vídeo (**fonte principal**)
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 
 ## Instructions
@@ -48,7 +48,7 @@ Salvar as 3 ideias em `output/{run-id}/lead-magnet-ideas.md`.
 ```markdown
 # Ideias de Isca Digital — {título do vídeo}
 
-Baseado em: output/{run-id}/v1/youtube-analysis.md
+Baseado em: output/{run-id}/v1/doc-source-analysis.md
 Data: {YYYY-MM-DD}
 
 ---

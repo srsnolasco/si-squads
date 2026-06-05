@@ -18,7 +18,8 @@ Antes de iniciar, Iago deve carregar e ler na íntegra:
 - `squads/youtube-to-instagram/output/{run-id}/Stories/stories-01-dom-{slug}.md` a `stories-07-sab-{slug}.md` — conteúdo completo dos 7 stories
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — isca digital aprovada
 - `squads/youtube-to-instagram/output/{run-id}/Roteiros/roteiro-youtube-{slug}.md` — roteiro YouTube
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — relatório do vídeo
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — relatório do vídeo
+- `squads/youtube-to-instagram/output/youtube-focus.md` — fonte e tipo de origem do conteúdo
 - `squads/youtube-to-instagram/output/{run-id}/Prompts/media-prompts.md` — 3 prompts de imagem IA
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 
@@ -42,6 +43,36 @@ Um arquivo salvo na raiz do run:
 
 Gerar um HTML 100% auto-suficiente com design Premium Dark da Sucesso Imóvel. **Toda imagem embutida como base64. Todo texto copiado diretamente dos arquivos MD. Nenhum `href` ou `src` apontando para arquivo externo.**
 
+### Parte 0 — Card de Origem do Conteúdo
+
+Preencher o bloco `source-card` logo abaixo do header:
+
+1. **Tipo de origem** — ler `youtube-focus.md` e identificar `source_type`:
+   - `youtube` → classe `source-badge.youtube`, label "YouTube"
+   - `local` → classe `source-badge.local`, label "Vídeo Local"
+   - `document` → classe `source-badge.document`, label "Documento"
+2. **Tema principal** — extrair o título/tema central da seção "1. Informações Básicas" do `doc-source-analysis.md`
+3. **Resumo** — redigir em até 50 palavras uma síntese do conteúdo central, baseada nos Tópicos Principais do relatório; não copiar — sintetizar
+4. **Metadados YouTube** — exibir o bloco `.source-meta` **somente** se `source_type = youtube`; extrair da seção "1. Informações Básicas" do `doc-source-analysis.md`:
+   - Ano: extrair de "Data de publicação"
+   - Visualizações: usar o campo "Visualizações" — se ausente, exibir "não disponível"
+   - Se `source_type ≠ youtube`: remover o elemento `.source-meta` do HTML
+
+### Layout Geral — Sidebar + 4 Views
+
+O dashboard usa layout de **sidebar fixa à esquerda (220px)** com área de conteúdo à direita. A navegação principal é feita pela sidebar, que tem 4 botões:
+
+| Botão | View | Conteúdo |
+|---|---|---|
+| Posts | `#view-posts` | Source card + nav por dia + todos os dias (Dom→Sáb) |
+| Isca | `#view-isca` | Isca digital: título, palavra CTA, descrição, iframe do HTML da isca |
+| Vídeo | `#view-video` | Relatório do vídeo (doc-source-analysis) + Roteiro YouTube em grid 2 colunas |
+| Prompts | `#view-prompts` | 3 prompts Imagen com botões "Copiar prompt" e "Copiar legenda" |
+
+JavaScript: `showView(name)` ativa a view correspondente e o botão da sidebar. Apenas uma view fica visível por vez (`.view { display:none }` / `.view.active { display:block }`).
+
+O link "Suporte" da nav de dias é removido (conteúdo de suporte agora está nas views Vídeo e Prompts).
+
 ### Parte 1 — Calendário Semanal (por dia)
 
 Uma seção por dia, na ordem Dom → Seg → Ter → Qua → Qui → Sex → Sáb. Cada seção contém o conteúdo completo publicado naquele dia.
@@ -62,7 +93,7 @@ Seções fixas independentes de dia:
 
 - **Roteiro YouTube** — título, duração estimada, melhorias aplicadas + link para `roteiro-youtube-{slug}.html`
 - **Prompts de Imagem IA** — os 3 prompts de `media-prompts.md` com ângulo e headline
-- **Relatório do Vídeo** — resumo das 8 seções de `youtube-analysis.md` + link para `youtube-analysis.html`
+- **Relatório do Vídeo** — resumo das 8 seções de `doc-source-analysis.md` + link para `doc-source-analysis.html`
 
 ---
 
@@ -96,6 +127,32 @@ Seções fixas independentes de dia:
       font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900;
     }
     .dashboard-header .meta { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+
+    /* ── SOURCE INFO ── */
+    .source-card {
+      max-width: 1200px; margin: -24px auto 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 16px; padding: 24px 32px;
+      display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;
+    }
+    .source-badge {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; padding: 5px 14px; border-radius: 100px;
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .source-badge.youtube  { background: rgba(255,80,80,0.12); color: #FF6B6B; border: 1px solid rgba(255,80,80,0.25); }
+    .source-badge.local    { background: rgba(96,165,250,0.12); color: #60A5FA; border: 1px solid rgba(96,165,250,0.25); }
+    .source-badge.document { background: rgba(52,211,153,0.12); color: #34D399; border: 1px solid rgba(52,211,153,0.25); }
+    .source-content { flex: 1; min-width: 0; }
+    .source-tema {
+      font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;
+      color: #fff; margin-bottom: 8px;
+    }
+    .source-resumo { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.65); }
+    .source-meta { display: flex; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
+    .source-meta-item { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .source-meta-item strong { color: rgba(255,255,255,0.75); font-weight: 600; }
 
     /* ── NAV DIAS ── */
     .nav-dias {
@@ -239,6 +296,20 @@ Seções fixas independentes de dia:
     <div class="label">Dashboard Semanal · Sucesso Imóvel</div>
     <h1>{TÍTULO DO TEMA}</h1>
     <div class="meta">Semana de publicação · Gerado em {YYYY-MM-DD}</div>
+  </div>
+
+  <!-- SOURCE INFO -->
+  <div class="source-card">
+    <span class="source-badge {youtube|local|document}">{YouTube | Vídeo Local | Documento}</span>
+    <div class="source-content">
+      <div class="source-tema">{TEMA PRINCIPAL — extraído da seção 1 do doc-source-analysis.md}</div>
+      <div class="source-resumo">{RESUMO DO TEMA EM ATÉ 50 PALAVRAS — síntese do conteúdo central}</div>
+      <!-- Exibir apenas se source_type = youtube: -->
+      <div class="source-meta">
+        <div class="source-meta-item">Publicado em <strong>{ANO}</strong></div>
+        <div class="source-meta-item"><strong>{N visualizações}</strong> visualizações</div>
+      </div>
+    </div>
   </div>
 
   <!-- NAV DIAS -->
@@ -486,6 +557,9 @@ Salvar em `output/{run-id}/dashboard-semanal-{slug}.html`.
 
 ## Quality Criteria
 
+- [ ] Card de origem presente com: tipo de origem, tema principal e resumo (≤ 50 palavras)
+- [ ] Classe CSS do badge corresponde ao tipo de origem (`youtube`, `local` ou `document`)
+- [ ] Bloco `.source-meta` (ano + visualizações) exibido apenas quando `source_type = youtube`
 - [ ] Todos os 7 dias presentes na ordem correta (Dom a Sáb)
 - [ ] Cada dia com o conteúdo correto conforme tabela de estrutura
 - [ ] Todos os PNGs embutidos como base64 — nenhum `src` com caminho de arquivo

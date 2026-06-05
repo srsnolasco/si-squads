@@ -14,7 +14,7 @@ Iago cria 6 roteiros de Reel Viral — um por dia de publicação (Dom, Seg, Ter
 
 Antes de iniciar, Iago deve carregar:
 - `squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md` — Conteúdo dos posts (fonte de ângulo para Ter, Qua, Qui e Sex)
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Análise do vídeo original (fonte de ângulo para Seg)
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Análise do vídeo original (fonte de ângulo para Seg)
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (**obrigatório para o Sex-Reel — extrair título e palavra do CTA**)
 - `squads/youtube-to-instagram/pipeline/data/tone-of-voice.md` — Guia de tons de voz
 - `squads/youtube-to-instagram/pipeline/data/hashtags.md` — Lista oficial de hashtags
@@ -35,8 +35,8 @@ Sete arquivos salvos em `output/{run-id}/Roteiros/`:
 
 | Reel | Fonte | Ângulo | Objetivo específico |
 |------|-------|--------|---------------------|
-| Dom-Reel | `youtube-analysis.md` — tema central + títulos dos posts | Teaser semanal — apresentação do tema sem aprofundar | Despertar curiosidade máxima para os próximos posts da semana |
-| Seg-Reel | `youtube-analysis.md` — tema central do vídeo | Abordagem abrangente do tema principal | Cobrir o tema de forma completa |
+| Dom-Reel | `doc-source-analysis.md` — tema central + títulos dos posts | Teaser semanal — apresentação do tema sem aprofundar | Despertar curiosidade máxima para os próximos posts da semana |
+| Seg-Reel | `doc-source-analysis.md` — tema central do vídeo | Abordagem abrangente do tema principal | Cobrir o tema de forma completa |
 | Ter-Reel | `post-content.md` — seção Ter-PU1 | Tema central / ponto principal do post | Aprofundar o ângulo editorial do Ter-PU1 |
 | Qua-Reel | `post-content.md` — seção Qua-PU2 | Impacto e consequência — o "e agora?" | Aprofundar o ângulo editorial do Qua-PU2 |
 | Qui-Reel | `post-content.md` — seção Qui-PU3 | Reflexão e princípio — o "por que isso importa" | Aprofundar o ângulo editorial do Qui-PU3 |

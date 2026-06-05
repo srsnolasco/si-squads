@@ -27,16 +27,18 @@ Antes de iniciar, Diego deve carregar:
 Os arquivos são separados em duas pastas:
 
 **`output/{run-id}/Posts/`** — apenas os PNGs finais (entregáveis):
-- `{slug}-single-post-1.png` — Ter-PU1 (1080×1350)
-- `{slug}-single-post-2.png` — Qua-PU2 (1080×1350)
-- `{slug}-single-post-3.png` — Qui-PU3 (1080×1350)
-- `{slug}-slide-01.png a {slug}-slide-NN.png — Seg-CT (1080×1440)
+- `{slug}-03-Ter-PU1.png` — Ter-PU1 (1080×1350)
+- `{slug}-04-Qua-PU2.png` — Qua-PU2 (1080×1350)
+- `{slug}-05-Qui-PU3.png` — Qui-PU3 (1080×1350)
+- `{slug}-02-Seg-CT-slide-01.png` a `{slug}-02-Seg-CT-slide-NN.png` — Seg-CT (1080×1440)
+- `{slug}-06-Sex-CCTA-slide-01.png` a `{slug}-06-Sex-CCTA-slide-NN.png` — Sex-CCTA (1080×1440)
 
 **`output/{run-id}/_html/`** — HTMLs de renderização (fonte dos PNGs, para consulta futura):
-- `{slug}-single-post-1.html`
-- `{slug}-single-post-2.html`
-- `{slug}-single-post-3.html`
-- `{slug}-slide-01.html` a `{slug}-slide-NN.html`
+- `{slug}-03-Ter-PU1.html`
+- `{slug}-04-Qua-PU2.html`
+- `{slug}-05-Qui-PU3.html`
+- `{slug}-02-Seg-CT-slide-01.html` a `{slug}-02-Seg-CT-slide-NN.html`
+- `{slug}-06-Sex-CCTA-slide-01.html` a `{slug}-06-Sex-CCTA-slide-NN.html`
 
 ## Instructions
 
@@ -60,8 +62,8 @@ Os arquivos são separados em duas pastas:
 ### Tarefa 1: Ter-PU1 — Roxo (com foto Dr. Jeorge)
 
 1. Ler o template `_templates/single-post-template.html`.
-2. Usar o arquivo de foto lido em `output/{run-id}/selected-jeorge-photo.md` (campo "Arquivo:").
-   Obter base64: `python3 -c "import base64; data = open('assets/imagens/jeorge/{nome-arquivo}','rb').read(); print(base64.b64encode(data).decode())"`
+2. Ler `output/{run-id}/selected-jeorge-photo.md` — extrair o campo `Arquivo:`.
+   Obter base64: `python3 -c "import base64; data = open('/Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imagens/fotos-ceo/{nome-arquivo}','rb').read(); print(base64.b64encode(data).decode())"`
 3. Substituir todos os placeholders `{{...}}` com o conteúdo do post-content.md.
    - `{{LOGO_B64}}` → LOGO_B64
    - `{{JEORGE_B64}}` → base64 da foto
@@ -84,14 +86,14 @@ Os arquivos são separados em duas pastas:
    - Se existir: pular para o passo 2b diretamente.
    - Se não existir: gerar em **modo test** primeiro:
      ```bash
-     python3 skills/image-ai-generator/scripts/generate.py \
+     source .env && python3 skills/image-ai-generator/scripts/generate.py \
        --prompt "{prompt extraído do ai-image-prompt-post2.md}" \
        --output "squads/youtube-to-instagram/output/{run-id}/ai-image-2-test.jpg" \
        --mode test
      ```
 3. Verificar visualmente a imagem test gerada. Se composição e tema estiverem adequados:
    ```bash
-   python3 skills/image-ai-generator/scripts/generate.py \
+   source .env && python3 skills/image-ai-generator/scripts/generate.py \
      --prompt "{mesmo prompt}" \
      --output "squads/youtube-to-instagram/output/{run-id}/ai-image-2.jpg" \
      --mode production
@@ -134,19 +136,25 @@ Os arquivos são separados em duas pastas:
 ### Tarefa 4: Seg-CT — Carrossel Tutorial Premium Dark Roxo
 
 1. Ler `pipeline/data/template-reference.html` como modelo.
-2. Para cada slide do Seg-CT:
-   a. Criar HTML baseado no template Premium Dark (fundo roxo/preto, paleta #7B2FBE / #A855F7)
+2. **Determinar a variação de cada slide** pela regra A→B→C definida em `pipeline/data/visual-identity.md`:
+   - Slide 1 (Capa) → `var-a`
+   - Slide 2 → `var-b`
+   - Slide 3 → `var-c`
+   - Slide 4 → `var-a` … ciclo continua
+   - Último slide (CTA) → `var-a` sempre (bookend com a capa)
+3. Para cada slide do Seg-CT:
+   a. Criar HTML baseado no template Premium Dark; aplicar a classe da variação no `<body>` (ex: `<body class="var-b">`)
    b. Aplicar accent keywords em `color: #A855F7`
    c. **Header:** logo branco centralizado (`height: 112px`, `justify-content: center`); tag no canto superior direito absoluto (`position:absolute; top:44px; right:72px; border-radius:100px`)
    d. **Eyebrow:** `font-size: 30px` — mais destacado
    e. **Conteúdo:** iniciar em `top: 220px` para dar espaço ao header
    f. **Botão ARRASTE:** `← ARRASTE` (seta à ESQUERDA), estilo botão transparente levemente arredondado: `color:rgba(255,255,255,0.90); background:rgba(255,255,255,0.08); border:2px solid rgba(255,255,255,0.30); border-radius:12px; padding:16px 36px; font-size:36px; font-weight:700`
    g. **Slide CTA (último):** o bloco de CTA deve sempre incluir um argumento persuasivo para salvar e compartilhar — não usar a fórmula genérica "salva e compartilha". Em vez disso, criar uma frase que justifique o salvamento ("você vai precisar disso antes do próximo fechamento", "esse conteúdo aparece na hora certa") e o compartilhamento ("manda para o colega que fechou sem verificar", "um corretor que você conhece vai agradecer"). O argumento deve ser específico ao tema do Seg-CT.
-   g. Salvar como `_html/{SLUG}-slide-01.html`, `_html/{SLUG}-slide-02.html`, etc.
-3. Renderizar cada slide:
+   h. Salvar como `_html/{SLUG}-slide-01.html`, `_html/{SLUG}-slide-02.html`, etc.
+4. Renderizar cada slide:
    - `browser_resize` → 1080 × 1440 (Seg-CT é mais alto que post único)
    - `browser_take_screenshot` → `Posts/{SLUG}-slide-01.png`, etc.
-4. Verificar slide 1 antes de continuar o batch.
+5. Verificar slide 1 antes de continuar o batch.
 
 ---
 
@@ -154,8 +162,14 @@ Os arquivos são separados em duas pastas:
 
 1. Ler `pipeline/data/template-reference.html` como modelo (mesmo template do Seg-CT).
 2. Ler `lead-magnet-ideas.md` para extrair a **palavra do CTA** — usar exatamente essa palavra no último slide.
-3. Para cada slide do Sex-CCTA:
-   a. Criar HTML baseado no template Premium Dark (fundo roxo/preto, paleta #7B2FBE / #A855F7)
+3. **Determinar a variação de cada slide** pela mesma regra A→B→C do Seg-CT:
+   - Slide 1 (Capa) → `var-a`
+   - Slide 2 → `var-b`
+   - Slide 3 → `var-c`
+   - Slide 4 → `var-a` … ciclo continua
+   - Último slide (CTA) → `var-a` sempre
+4. Para cada slide do Sex-CCTA:
+   a. Criar HTML baseado no template Premium Dark; aplicar a classe da variação no `<body>` (ex: `<body class="var-c">`)
    b. Aplicar accent keywords em `color: #A855F7`
    c. **Header:** logo branco centralizado (`height: 112px`); tag no canto superior direito
    d. **Eyebrow:** `font-size: 30px`
@@ -163,10 +177,10 @@ Os arquivos são separados em duas pastas:
    f. **Botão ARRASTE:** `← ARRASTE` (seta à ESQUERDA), mesmo estilo do Seg-CT
    g. **Slide CTA (último):** "Comenta [PALAVRA] aqui embaixo e receba [referência genérica ao material]" — PALAVRA extraída de `lead-magnet-ideas.md`
    h. Salvar como `_html/{SLUG}-ccta-slide-01.html`, `_html/{SLUG}-ccta-slide-02.html`, etc.
-4. Renderizar cada slide:
+5. Renderizar cada slide:
    - `browser_resize` → 1080 × 1440
    - `browser_take_screenshot` → `Posts/{SLUG}-ccta-slide-01.png`, etc.
-5. Verificar slide 1 antes de continuar o batch.
+6. Verificar slide 1 antes de continuar o batch.
 
 ---
 
@@ -182,30 +196,30 @@ Os arquivos são separados em duas pastas:
 Posts gerados em output/{run-id}/Posts/:
 
 POST ÚNICOS (1080×1350):
-- {slug}-single-post-1.png ✅ — Roxo | {headline}
-- {slug}-single-post-2.png ✅ — Carvão/Roxo Claro | {headline}
-- {slug}-single-post-3.png ✅ — Branco/Lavanda | {headline}
+- {slug}-03-Ter-PU1.png ✅ — Roxo | {headline}
+- {slug}-04-Qua-PU2.png ✅ — Carvão/Roxo Claro | {headline}
+- {slug}-05-Qui-PU3.png ✅ — Branco/Lavanda | {headline}
 
 Seg-CT — CARROSSEL TUTORIAL (1080×1440):
-- {slug}-slide-01.png ✅ — Capa
-- {slug}-slide-02.png ✅
+- {slug}-02-Seg-CT-slide-01.png ✅ — Capa
+- {slug}-02-Seg-CT-slide-02.png ✅
 [...]
-- {slug}-slide-NN.png ✅ — CTA (salvar)
+- {slug}-02-Seg-CT-slide-NN.png ✅ — CTA (salvar)
 
 Sex-CCTA — CARROSSEL ISCA DIGITAL (1080×1440):
-- {slug}-ccta-slide-01.png ✅ — Capa
-- {slug}-ccta-slide-02.png ✅
+- {slug}-06-Sex-CCTA-slide-01.png ✅ — Capa
+- {slug}-06-Sex-CCTA-slide-02.png ✅
 [...]
-- {slug}-ccta-slide-NN.png ✅ — CTA (comentar [PALAVRA])
+- {slug}-06-Sex-CCTA-slide-NN.png ✅ — CTA (comentar [PALAVRA])
 
 Total: 3 posts únicos + N slides de Seg-CT + N slides de Sex-CCTA
 
 HTMLs de renderização salvos em output/{run-id}/_html/:
-- {slug}-single-post-1.html
-- {slug}-single-post-2.html
-- {slug}-single-post-3.html
-- {slug}-slide-01.html a {slug}-slide-NN.html
-- {slug}-ccta-slide-01.html a {slug}-ccta-slide-NN.html
+- {slug}-03-Ter-PU1.html
+- {slug}-04-Qua-PU2.html
+- {slug}-05-Qui-PU3.html
+- {slug}-02-Seg-CT-slide-01.html a {slug}-02-Seg-CT-slide-NN.html
+- {slug}-06-Sex-CCTA-slide-01.html a {slug}-06-Sex-CCTA-slide-NN.html
 ```
 
 ## Quality Criteria
@@ -214,10 +228,12 @@ HTMLs de renderização salvos em output/{run-id}/_html/:
 - [ ] Post 2: template carvão/roxo-claro (#C084FC), imagem IA (ou placeholder), CTA pede like
 - [ ] Post 3: template branco/lavanda, 100% tipográfico, quote box presente, **logo colorido**, CTA pede seguir
 - [ ] Seg-CT: logo 112px centralizado, eyebrow 30px, conteúdo top:220px, botão `← ARRASTE` estilo transparente branco, slides 1080×1440
+- [ ] Seg-CT: slides alternam var-a → var-b → var-c → var-a…; capa e CTA sempre var-a
 - [ ] Sex-CCTA: mesmo padrão visual do Seg-CT, CTA do último slide usa palavra extraída de `lead-magnet-ideas.md`, arquivos nomeados com prefixo `-ccta-slide-`
+- [ ] Sex-CCTA: slides alternam var-a → var-b → var-c → var-a…; capa e CTA sempre var-a
 - [ ] Todos os posts únicos: 1080×1350
 - [ ] Card de conteúdo centralizado (bottom: 240px) em todos os posts únicos
-- [ ] Todos os arquivos nomeados com prefixo `{slug}-`
+- [ ] Nomenclatura correta: `{slug}-03-Ter-PU1`, `{slug}-04-Qua-PU2`, `{slug}-05-Qui-PU3`, `{slug}-02-Seg-CT-slide-NN`, `{slug}-06-Sex-CCTA-slide-NN`
 - [ ] PNGs salvos em `Posts/`, HTMLs salvos em `_html/` — pastas separadas
 - [ ] Servidor HTTP parado após o último slide
 
@@ -229,6 +245,8 @@ HTMLs de renderização salvos em output/{run-id}/_html/:
 4. Post 3 tem foto de pessoa (deve ser 100% texto)
 5. Seg-CT usa seta `ARRASTE →` (deve ser `← ARRASTE`)
 6. Sex-CCTA usa seta `ARRASTE →` (deve ser `← ARRASTE`)
+7. Seg-CT ou Sex-CCTA com todos os slides na mesma variação (alternância obrigatória)
+8. Capa ou CTA de qualquer carrossel com variação diferente de var-a
 7. Sex-CCTA com CTA usando palavra diferente da registrada em `lead-magnet-ideas.md`
 8. Algum PNG não foi gerado
 7. Arquivos gerados sem prefixo do slug (ex: `single-post-1.png` em vez de `{slug}-single-post-1.png`)

@@ -2,7 +2,7 @@
 type: agent
 agent: yago-video
 execution: subagent
-inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/post-ideas.md
 model_tier: powerful
 ---
@@ -14,7 +14,7 @@ Yago Vídeo lê o relatório de análise do vídeo e gera exatamente 5 ideias de
 ## Context Loading
 
 Antes de iniciar, Yago deve carregar:
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Relatório completo da análise do vídeo
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Relatório completo da análise do vídeo
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (para extrair a palavra do CTA do Sex-CCTA)
 - `squads/youtube-to-instagram/pipeline/data/domain-framework.md` — Classificação de conteúdo e design
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
@@ -47,7 +47,7 @@ Salvar as ideias em `output/{run-id}/post-ideas.md`.
 ```markdown
 # Ideias de Post — {título do vídeo}
 
-Baseado em: output/{run-id}/v1/youtube-analysis.md
+Baseado em: output/{run-id}/v1/doc-source-analysis.md
 Data: {YYYY-MM-DD}
 
 ---

@@ -19,7 +19,7 @@ Antes de iniciar, Renata deve carregar:
 - `squads/youtube-to-instagram/pipeline/data/quality-criteria.md` — Critérios e thresholds de avaliação
 - `squads/youtube-to-instagram/pipeline/data/hashtags.md` — Lista oficial de hashtags (fonte de verdade)
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (verificar palavra do CTA do Sex-CCTA)
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Análise do vídeo (fonte de verdade para verificar aderência)
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Análise do vídeo (fonte de verdade para verificar aderência)
 
 ## Instructions
 

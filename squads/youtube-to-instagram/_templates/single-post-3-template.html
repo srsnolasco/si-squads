@@ -71,14 +71,14 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   padding: 44px 56px 0; z-index: 20;
 }
 /* Logo centralizado */
-.logo img { height: 112px; }
+.logo img { height: 150px; }
 
-/* ── ZONA 2: HEADLINE (168–490px, 322px fixos) ── */
+/* ── ZONA 2: HEADLINE (168–490px) ── */
 .headline-block {
   position: absolute; top: 168px; left: 80px; right: 60px;
-  height: 322px; overflow: hidden; z-index: 20;
+  max-height: 420px; overflow: hidden; z-index: 20;
 }
-/* Eyebrow mesmo tamanho do Post 2 */
+/* Eyebrow */
 .eyebrow {
   font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 600;
   color: #7B2FBE; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px;
@@ -86,14 +86,14 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 .divider {
   width: 64px; height: 4px;
   background: linear-gradient(90deg, #5B21B6, #A855F7);
-  border-radius: 2px; margin-bottom: 22px;
+  border-radius: 2px; margin-bottom: 48px;
 }
-/* Headline mesmo tamanho do Post 2 */
+/* Headline escalável — nunca corta */
 .headline {
-  font-family: 'Montserrat', sans-serif; font-size: 70px; font-weight: 900;
-  color: #1C1333; line-height: 1.05; letter-spacing: -2px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: #1C1333; line-height: 1.2; letter-spacing: -0.5px;
 }
 .headline .accent { color: #7B2FBE; }
 
@@ -117,21 +117,21 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 .quote-text .accent { color: #7B2FBE; }
 .quote-text .accent-light { color: #A855F7; }
 
-/* ── ZONA 4: CONTENT CARD (740–1130px, 390px) ── */
+/* ── ZONA 4: CONTENT CARD (760–1100px, 340px — centralizado entre quote e CTA) ── */
 .content-card {
-  position: absolute; top: 740px; bottom: 220px; left: 52px; right: 52px;
+  position: absolute; top: 760px; bottom: 250px; left: 52px; right: 52px;
   z-index: 30;
   background: rgba(255,255,255,0.80);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(109,40,217,0.15);
-  border-radius: 24px; padding: 36px 52px;
-  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  border-radius: 24px; padding: 32px 52px;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
   overflow: hidden;
 }
-/* Body text mesmo tamanho do Post 2 */
+/* Body text aumentado */
 .body-text {
-  font-family: 'Inter', sans-serif; font-size: 39px;
-  font-weight: 500; color: #2D1B4E; line-height: 1.55;
+  font-family: 'Inter', sans-serif; font-size: 46px;
+  font-weight: 500; color: #2D1B4E; line-height: 1.5;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -192,10 +192,9 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
     <div class="quote-text">{{QUOTE_TEXT}}</div>
   </div>
 
-  <!-- ZONA 4: Card de conteúdo (740–1130px) -->
+  <!-- ZONA 4: Card de conteúdo (790–1130px) -->
   <div class="content-card">
     <div class="body-text">{{BODY_TEXT}}</div>
-    <div class="badge">{{BADGE_TEXT}}</div>
   </div>
 
   <!-- ZONA 5: CTA — "Siga nosso perfil:" fixo + {{CTA_TEXT}} -->

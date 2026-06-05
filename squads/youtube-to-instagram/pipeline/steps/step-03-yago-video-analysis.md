@@ -3,14 +3,14 @@ type: agent
 agent: yago-video
 execution: subagent
 inputFile: squads/youtube-to-instagram/output/youtube-focus.md
-outputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md
 model_tier: powerful
 run_id_slug: true
 ---
 
 # Step 03: Yago Vídeo — Análise do Conteúdo
 
-Yago Vídeo analisa o conteúdo da fonte selecionada (YouTube, vídeo local transcrito ou documento de texto) e produz um relatório completo em dois formatos: Markdown (`youtube-analysis.md`) e HTML visual (`youtube-analysis.html`).
+Yago Vídeo analisa o conteúdo da fonte selecionada (YouTube, vídeo local transcrito ou documento de texto) e produz um relatório completo em dois formatos: Markdown (`doc-source-analysis.md`) e HTML visual (`doc-source-analysis.html`).
 
 ## Context Loading
 
@@ -29,7 +29,7 @@ Antes de iniciar, Yago deve carregar:
    - Se `focus: auto` — o usuário delegou a escolha do ângulo. Yago deve analisar o conteúdo completo e escolher autonomamente o ângulo de maior potencial para o público de corretores, justificando a escolha na seção de Informações Básicas do relatório.
 
 **Se `source_type: youtube`:**
-2. Usar `web_fetch` na URL do YouTube para obter: título, descrição, canal, duração, data de publicação.
+2. Usar `web_fetch` na URL do YouTube para obter: título, descrição, canal, duração, data de publicação, **número de visualizações**.
 3. Identificar os principais tópicos abordados no vídeo.
 
 **Se `source_type: local`:**
@@ -46,7 +46,7 @@ Antes de iniciar, Yago deve carregar:
 **Ambos os casos — produzir relatório completo com as seguintes seções:**
 
 #### 1. Informações Básicas
-Título, canal, duração, data de publicação, URL ou nome do arquivo.
+Título, canal, duração, data de publicação, URL ou nome do arquivo. **Se `source_type: youtube`: incluir também número de visualizações.**
 
 #### 2. Tópicos Principais
 Lista dos tópicos abordados no vídeo, com descrição de cada um e dados/afirmações rastreáveis.
@@ -72,11 +72,11 @@ Citações ou momentos do vídeo com maior potencial de virar post, slide ou hoo
 #### 9. Fit com a Audiência da Sucesso Imóvel
 Avaliação de aderência do conteúdo ao público-alvo (corretores e imobiliárias). O tema é relevante? A linguagem é adequada? O vídeo gera segurança jurídica ou apenas informação genérica?
 
-Salvar o relatório completo em `output/{run-id}/v1/youtube-analysis.md`.
+Salvar o relatório completo em `output/{run-id}/v1/doc-source-analysis.md`.
 
 ### Gerar HTML do Relatório
 
-Após salvar o Markdown, gerar `output/{run-id}/v1/youtube-analysis.html` — documento HTML auto-suficiente com a identidade visual da Sucesso Imóvel (Premium Dark), apresentando todas as 8 seções do relatório de forma organizada e visualmente rica.
+Após salvar o Markdown, gerar `output/{run-id}/v1/doc-source-analysis.html` — documento HTML auto-suficiente com a identidade visual da Sucesso Imóvel (Premium Dark), apresentando todas as 8 seções do relatório de forma organizada e visualmente rica.
 
 **Design:** fundo escuro (`#0A0012` → `#1A0A2E`), accent roxo (`#A855F7`), tipografia Montserrat + Inter via Google Fonts.
 
@@ -239,7 +239,7 @@ Após salvar o Markdown, gerar `output/{run-id}/v1/youtube-analysis.html` — do
 </html>
 ```
 
-O HTML deve ser auto-suficiente — sem dependências externas além do Google Fonts. Salvar em `output/{run-id}/v1/youtube-analysis.html`.
+O HTML deve ser auto-suficiente — sem dependências externas além do Google Fonts. Salvar em `output/{run-id}/v1/doc-source-analysis.html`.
 
 ## Output Format
 
@@ -249,6 +249,7 @@ O HTML deve ser auto-suficiente — sem dependências externas além do Google F
 **Canal:** {canal}
 **Duração:** {duração}
 **Data:** {data de publicação}
+**Visualizações:** {número de visualizações — somente se source_type: youtube; omitir nos demais}
 **Fonte:** {URL ou nome do arquivo}
 **Data da análise:** {YYYY-MM-DD}
 
@@ -321,8 +322,8 @@ O HTML deve ser auto-suficiente — sem dependências externas além do Google F
 - [ ] Mínimo de 3 insights-chave para corretores
 - [ ] Mínimo de 2 trechos para reaproveitamento com citação exata
 - [ ] Mínimo de 2 sugestões de melhoria concretas
-- [ ] `output/{run-id}/v1/youtube-analysis.md` salvo
-- [ ] `output/{run-id}/v1/youtube-analysis.html` gerado com design Premium Dark
+- [ ] `output/{run-id}/v1/doc-source-analysis.md` salvo
+- [ ] `output/{run-id}/v1/doc-source-analysis.html` gerado com design Premium Dark
 - [ ] HTML auto-suficiente — todas as 8 seções presentes no HTML
 
 ## Veto Conditions

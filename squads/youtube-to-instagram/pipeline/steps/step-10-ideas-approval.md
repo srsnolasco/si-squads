@@ -26,10 +26,10 @@ As ideias estão em `output/{run-id}/post-ideas.md`. Cada ideia inclui formato, 
 
 ## Pergunta 2: Foto do Dr. Jeorge (Ter-PU1)
 
-Listar as fotos disponíveis:
+Listar as fotos disponíveis na pasta global de fotos do CEO:
 
 ```bash
-ls assets/imagens/jeorge/ | grep -E 'SI-Jeorge' | sort
+ls /Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imagens/fotos-ceo/ | sort
 ```
 
 **Qual foto do Dr. Jeorge usar no Ter-PU1?**
@@ -42,6 +42,7 @@ Salvar a escolha em `output/{run-id}/selected-jeorge-photo.md`:
 # Foto Dr. Jeorge Selecionada
 
 Arquivo: {nome-do-arquivo-escolhido}
+Pasta: /Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imagens/fotos-ceo/
 ```
 
 ---

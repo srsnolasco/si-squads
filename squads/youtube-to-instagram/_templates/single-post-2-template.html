@@ -71,7 +71,7 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   padding: 44px 56px 0; z-index: 20;
 }
 /* Logo maior */
-.logo img { height: 112px; }
+.logo img { height: 150px; }
 
 /* TAG maior */
 .tag {
@@ -80,10 +80,10 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   padding: 13px 30px; border-radius: 100px;
 }
 
-/* ── ZONA 2: HEADLINE (180–460px, sobre a imagem) ── */
+/* ── ZONA 2: HEADLINE (180–640px, sobre a imagem) ── */
 .headline-block {
   position: absolute; top: 180px; left: 16px; right: 16px;
-  height: 280px; overflow: hidden;
+  max-height: 460px; overflow: hidden;
   z-index: 20;
   text-align: center;
 }
@@ -94,15 +94,16 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 }
 .divider {
   width: 64px; height: 4px; background: linear-gradient(90deg, #7C3AED, #C084FC);
-  border-radius: 2px; margin: 0 auto 18px auto;
+  border-radius: 2px; margin: 0 auto 48px auto;
 }
-/* Headline maior e centralizada */
+/* Headline escalável — nunca corta */
 .headline {
-  font-family: 'Montserrat', sans-serif; font-size: 70px; font-weight: 900;
-  color: #FFF; line-height: 1.05; letter-spacing: -2px;
-  text-shadow: 0 2px 28px rgba(13,13,16,0.95);
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: #FFF; line-height: 1.2; letter-spacing: -0.5px;
+  text-shadow: 0 2px 24px rgba(13,13,16,0.95);
+  max-width: 900px; margin: 0 auto;
 }
 .headline .accent { color: #C084FC; }
 
@@ -118,9 +119,9 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   display: flex; flex-direction: column; justify-content: center; gap: 24px;
   overflow: hidden;
 }
-/* Body text maior, máx 4 linhas */
+/* Body text */
 .body-text {
-  font-family: 'Inter', sans-serif; font-size: 39px;
+  font-family: 'Inter', sans-serif; font-size: 43px;
   font-weight: 500; color: rgba(255,255,255,0.90); line-height: 1.55;
   overflow: hidden;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;

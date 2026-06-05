@@ -15,7 +15,7 @@ Iago Instagram transforma as ideias aprovadas em conteúdo completo para **5 pos
 Antes de iniciar, Iago deve carregar:
 - `squads/youtube-to-instagram/output/{run-id}/approved-ideas.md` — Ideias aprovadas pelo usuário
 - `squads/youtube-to-instagram/output/{run-id}/selected-jeorge-photo.md` — Foto do Dr. Jeorge selecionada no step 10 (**usar exatamente este arquivo no Ter-PU1**)
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Análise completa do vídeo
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Análise completa do vídeo
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (**obrigatório para o Sex-CCTA — extrair título, descrição e palavra do CTA**)
 - `squads/youtube-to-instagram/pipeline/data/tone-of-voice.md` — Guia de tons de voz
 - `squads/youtube-to-instagram/pipeline/data/quality-criteria.md` — Critérios de qualidade
@@ -60,7 +60,7 @@ O squad produz **5 posts** a cada run:
 - **Template:** `_templates/single-post-template.html`
 - **Eyebrow:** categoria do conteúdo (ex: "Novidade Jurídica")
 - **Tag:** área + tema (ex: "JURÍDICO / STJ")
-- **Foto Dr. Jeorge:** indicar qual foto usar de `assets/imagens/jeorge/` (preferir PNG com `-Transp` no nome)
+- **Foto Dr. Jeorge:** indicar qual foto usar de `/Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imagens/fotos-ceo/` (preferir PNG com fundo transparente)
 
 #### Qua-PU2 — Com imagem IA | Ângulo: Impacto/Consequência
 
@@ -223,7 +223,7 @@ Data: {YYYY-MM-DD}
 - [ ] Todos os hooks têm no máximo 125 caracteres
 - [ ] Body text do Qua-PU2 tem no máximo 120 caracteres (contados) — frase completa, sem corte
 - [ ] Body text do Qui-PU3 tem no máximo 120 caracteres (contados) — frase completa, sem corte
-- [ ] Todo conteúdo rastreável à análise do vídeo em `youtube-analysis.md`
+- [ ] Todo conteúdo rastreável à análise do vídeo em `doc-source-analysis.md`
 - [ ] `output/{run-id}/Posts/post-content.md` salvo antes de encerrar
 - [ ] Hashtags de todos os posts são exatamente as listadas em `pipeline/data/hashtags.md` — sem adicionar ou remover
 - [ ] **ZERO emojis** em qualquer campo de qualquer post — headline, body, badge, CTA, legenda, hashtags

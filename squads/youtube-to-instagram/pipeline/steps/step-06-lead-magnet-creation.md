@@ -14,7 +14,7 @@ Iago cria o conteúdo completo da isca digital aprovada pelo usuário no checkpo
 
 Antes de iniciar, Iago deve carregar:
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Ideias aprovadas pelo usuário
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Relatório da análise do vídeo (fonte de conteúdo)
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Relatório da análise do vídeo (fonte de conteúdo)
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 
 ## Instructions

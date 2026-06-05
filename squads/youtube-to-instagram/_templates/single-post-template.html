@@ -44,7 +44,7 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 .orb-cta { width: 1100px; height: 320px; background: #5B21B6; opacity: 0.42; bottom: -80px; left: -100px; }
 
 .accent-line {
-  position: absolute; left: 60px; top: 270px;
+  position: absolute; left: 60px; top: 80px;
   width: 5px; height: 300px;
   background: linear-gradient(180deg, #7B2FBE 0%, #A855F7 55%, transparent 100%);
   border-radius: 3px; z-index: 6;
@@ -65,7 +65,7 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 
 /* ── HEADLINE — esquerda, até ~500px ─── */
 .headline-block {
-  position: absolute; top: 168px; left: 80px;
+  position: absolute; top: 60px; left: 80px;
   width: 420px; z-index: 20;
 }
 .eyebrow {
@@ -81,8 +81,8 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 
 /* ── DR. JEORGE — PNG transparente, coluna direita ── */
 .jeorge-img {
-  position: absolute; right: 0; top: 50px;
-  width: 580px; height: auto; z-index: 15;
+  position: absolute; right: 0; top: 0;
+  width: 660px; height: auto; z-index: 15;
   mask-image: linear-gradient(to bottom, black 0%, black 78%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 78%, transparent 100%);
 }
@@ -109,7 +109,8 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
 }
 .body-text .accent { color: #A855F7; font-weight: 600; }
 .badge {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: fit-content; margin: 0 auto;
   background: rgba(123,47,190,0.24); border: 1px solid rgba(168,85,247,0.38);
   color: rgba(255,255,255,0.82); font-family: 'Inter', sans-serif;
   font-size: 26px; font-weight: 600; padding: 12px 26px; border-radius: 100px;
@@ -146,16 +147,9 @@ body { width: 1080px; height: 1350px; overflow: hidden; }
   <div class="jeorge-glow"></div>
   <div class="accent-line"></div>
 
-  <div class="header">
-    <div class="logo"><img src="data:image/png;base64,{{LOGO_B64}}" alt="Sucesso Imóvel"></div>
-    <div class="tag">{{TAG}}</div>
-  </div>
-
   <img class="jeorge-img" src="data:image/png;base64,{{JEORGE_B64}}" alt="Dr. Jeorge">
 
   <div class="headline-block">
-    <div class="eyebrow">{{EYEBROW}}</div>
-    <div class="divider"></div>
     <div class="headline">{{HEADLINE}}</div>
   </div>
 

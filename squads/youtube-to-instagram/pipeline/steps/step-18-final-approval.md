@@ -28,8 +28,8 @@ Todos os entregáveis do ciclo estão disponíveis em `output/{run-id}/`.
 ## Arquivos gerados neste ciclo
 
 ### `output/{run-id}/v1/`
-- `youtube-analysis.md` — Relatório completo do vídeo (8 seções)
-- `youtube-analysis.html` — Versão visual do relatório
+- `doc-source-analysis.md` — Relatório completo do vídeo (8 seções)
+- `doc-source-analysis.html` — Versão visual do relatório
 
 ### `output/{run-id}/Lead-Magnets/`
 - `lead-magnet-{PALAVRA}-{slug}.md` — Conteúdo da isca digital

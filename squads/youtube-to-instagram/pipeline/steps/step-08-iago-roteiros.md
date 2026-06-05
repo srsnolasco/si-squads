@@ -2,7 +2,7 @@
 type: agent
 agent: iago-instagram
 execution: inline
-inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Roteiros/
 ---
 
@@ -13,7 +13,7 @@ Iago cria o roteiro de vídeo para YouTube com base no relatório de análise ge
 ## Context Loading
 
 Antes de iniciar, Iago deve carregar:
-- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-analysis.md` — Relatório completo da análise do vídeo (**fonte principal**)
+- `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Relatório completo da análise do vídeo (**fonte principal**)
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 
 ## Estrutura de Output
@@ -25,7 +25,7 @@ Um arquivo salvo em `output/{run-id}/Roteiros/`:
 
 ### Roteiro YouTube
 
-**Antes de escrever, ler obrigatoriamente do relatório `youtube-analysis.md`:**
+**Antes de escrever, ler obrigatoriamente do relatório `doc-source-analysis.md`:**
 - **Seção 3 — Pontos Negativos / Lacunas:** cada ponto negativo identificado deve ser corrigido ou suprimido no roteiro
 - **Seção 7 — Sugestões de Melhoria:** aplicar todas as sugestões como diretrizes de escrita
 - **Seção 5 — Insights-Chave para Corretores:** usar como base para o desenvolvimento do conteúdo
