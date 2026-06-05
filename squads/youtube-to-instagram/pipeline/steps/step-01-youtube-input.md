@@ -1,6 +1,7 @@
 ---
 type: checkpoint
-outputFile: squads/youtube-to-instagram/output/youtube-focus.md
+run_id_slug: true
+outputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md
 ---
 
 # Step 01: Seleção de Vídeo
@@ -85,7 +86,7 @@ Salvar `focus: auto` no `youtube-focus.md`. O Yago interpretará isso no step 3 
 
 ### 4. Salvar o output
 
-Salve em `squads/youtube-to-instagram/output/youtube-focus.md` usando o formato abaixo.
+Salve em `squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md` usando o formato abaixo.
 
 **Se vídeo local:**
 ```markdown

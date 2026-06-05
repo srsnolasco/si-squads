@@ -658,7 +658,7 @@ Botão: ← ARRASTE</div>
 6. Para **legenda**: preservar as quebras de linha usando `white-space: pre-wrap` já aplicado no CSS
 7. Para **slides do Seg-CT**: criar um `<div class="slide-item">` para cada slide
 8. Para **slides do Sex-CCTA**: criar um `<div class="slide-item">` para cada slide; incluir a **Palavra do CTA** extraída de `lead-magnet-ideas.md` no campo correspondente
-9. Para o **prompt da imagem IA**: incluir no campo correspondente do Qua-PU2 (ler de `output/ai-image-prompt-post2.md`)
+9. Para o **prompt da imagem IA**: incluir no campo correspondente do Qua-PU2 (ler de `output/{run-id}/Prompts/ai-image-prompt-post2.md`)
 10. **Não alterar nenhum CSS** — apenas preencher o conteúdo
 11. Salvar em `output/Posts/post-content.html`
 

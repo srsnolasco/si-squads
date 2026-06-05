@@ -2,8 +2,9 @@
 type: agent
 agent: transcription
 execution: inline
-inputFile: squads/youtube-to-instagram/output/youtube-focus.md
-outputFile: squads/youtube-to-instagram/output/video-transcript.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md
+run_id_slug: true
+outputFile: squads/youtube-to-instagram/output/{run-id}/v1/video-transcript.md
 ---
 
 # Step 02: Transcrição / Extração de Conteúdo
@@ -19,7 +20,7 @@ Este step processa a fonte de conteúdo selecionada no step 1:
 
 ### 1. Verificar fonte do conteúdo
 
-Leia `squads/youtube-to-instagram/output/youtube-focus.md`.
+Leia `squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md`.
 
 - Se `source_type: youtube` → pule direto para o **Passo 5 (Output vazio)**.
 - Se `source_type: local` → continue com o **Passo 2 (vídeo)**.
@@ -146,7 +147,7 @@ Se nenhuma ferramenta estiver disponível, informar o usuário com instrução d
 
 **Se fonte for local (transcrição realizada):**
 
-Salve em `squads/youtube-to-instagram/output/video-transcript.md`:
+Salve em `squads/youtube-to-instagram/output/{run-id}/v1/video-transcript.md`:
 
 ```markdown
 # Transcrição do Vídeo
@@ -163,7 +164,7 @@ model: whisper-large-v3
 
 **Se fonte for documento:**
 
-Salve em `squads/youtube-to-instagram/output/video-transcript.md`:
+Salve em `squads/youtube-to-instagram/output/{run-id}/v1/video-transcript.md`:
 
 ```markdown
 # Conteúdo do Documento
@@ -180,7 +181,7 @@ extracted_at: {data e hora atual}
 
 **Se fonte for YouTube (step pulado):**
 
-Salve em `squads/youtube-to-instagram/output/video-transcript.md`:
+Salve em `squads/youtube-to-instagram/output/{run-id}/v1/video-transcript.md`:
 
 ```markdown
 # Transcrição do Vídeo
@@ -201,11 +202,11 @@ rm -f /tmp/si_transcription_audio.mp3
 
 ## Quality Criteria
 
-- [ ] youtube-focus.md lido corretamente
+- [ ] `v1/youtube-focus.md` lido corretamente
 - [ ] Se local: ffmpeg executado sem erros e Groq API respondeu com sucesso
 - [ ] Se document: texto extraído com sucesso e salvo completo
 - [ ] Se document: formato do arquivo identificado e extrator correto utilizado
-- [ ] video-transcript.md salvo com conteúdo correto para o source_type
+- [ ] `v1/video-transcript.md` salvo com conteúdo correto para o source_type
 - [ ] Arquivo de áudio temporário removido após uso (apenas fonte local)
 
 ## Veto Conditions

@@ -2,7 +2,7 @@
 type: agent
 agent: yago-video
 execution: subagent
-inputFile: squads/youtube-to-instagram/output/youtube-focus.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md
 model_tier: powerful
 run_id_slug: true
@@ -15,8 +15,8 @@ Yago Vídeo analisa o conteúdo da fonte selecionada (YouTube, vídeo local tran
 ## Context Loading
 
 Antes de iniciar, Yago deve carregar:
-- `squads/youtube-to-instagram/output/youtube-focus.md` — fonte do vídeo e foco informados pelo usuário
-- `squads/youtube-to-instagram/output/video-transcript.md` — transcrição (se fonte local) ou marcador "none" (se YouTube)
+- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md` — fonte do vídeo e foco informados pelo usuário
+- `squads/youtube-to-instagram/output/{run-id}/v1/video-transcript.md` — transcrição (se fonte local) ou marcador "none" (se YouTube)
 - `squads/youtube-to-instagram/pipeline/data/research-brief.md` — Framework de análise YouTube→Instagram
 - `squads/youtube-to-instagram/pipeline/data/domain-framework.md` — Classificação de conteúdo e design
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel para contextualizar a análise
@@ -25,7 +25,7 @@ Antes de iniciar, Yago deve carregar:
 
 ### Analisar o Vídeo
 
-1. Ler `output/youtube-focus.md` para verificar `source_type` (youtube, local ou document) e o foco informado.
+1. Ler `output/{run-id}/v1/youtube-focus.md` para verificar `source_type` (youtube, local ou document) e o foco informado.
    - Se `focus: auto` — o usuário delegou a escolha do ângulo. Yago deve analisar o conteúdo completo e escolher autonomamente o ângulo de maior potencial para o público de corretores, justificando a escolha na seção de Informações Básicas do relatório.
 
 **Se `source_type: youtube`:**
@@ -33,12 +33,12 @@ Antes de iniciar, Yago deve carregar:
 3. Identificar os principais tópicos abordados no vídeo.
 
 **Se `source_type: local`:**
-2. Ler `output/video-transcript.md` para obter a transcrição completa do vídeo.
+2. Ler `output/{run-id}/v1/video-transcript.md` para obter a transcrição completa do vídeo.
 3. O título do vídeo será o `file_name` sem extensão (formatar de forma legível, ex: "minha-aula.mp4" → "Minha Aula").
 4. Identificar os principais tópicos abordados com base na transcrição.
 
 **Se `source_type: document`:**
-2. Ler `output/video-transcript.md` para obter o conteúdo extraído do documento.
+2. Ler `output/{run-id}/v1/video-transcript.md` para obter o conteúdo extraído do documento.
 3. O título será o `file_name` sem extensão (formatar de forma legível, ex: "roteiro-contrato.pdf" → "Roteiro Contrato").
 4. Identificar os principais tópicos abordados com base no texto extraído.
 5. Nas seções do relatório que mencionam "vídeo", adaptar a linguagem para "documento" quando aplicável (ex: "Análise do Documento" em vez de "Análise do Vídeo", "Análise do Hook do documento" etc.).

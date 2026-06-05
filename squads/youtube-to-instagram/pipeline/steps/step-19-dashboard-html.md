@@ -3,7 +3,7 @@ type: agent
 agent: iago-instagram
 execution: inline
 inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
-outputFile: squads/youtube-to-instagram/output/{run-id}/dashboard-semanal-{slug}.html
+outputFile: squads/youtube-to-instagram/output/{run-id}/Dashboard/dashboard-semanal-{slug}.html
 ---
 
 # Step 19: Dashboard Semanal — HTML Unificado Auto-Suficiente
@@ -19,7 +19,7 @@ Antes de iniciar, Iago deve carregar e ler na íntegra:
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — isca digital aprovada
 - `squads/youtube-to-instagram/output/{run-id}/Roteiros/roteiro-youtube-{slug}.md` — roteiro YouTube
 - `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — relatório do vídeo
-- `squads/youtube-to-instagram/output/youtube-focus.md` — fonte e tipo de origem do conteúdo
+- `squads/youtube-to-instagram/output/{run-id}/v1/youtube-focus.md` — fonte e tipo de origem do conteúdo
 - `squads/youtube-to-instagram/output/{run-id}/Prompts/media-prompts.md` — 3 prompts de imagem IA
 - `_opensquad/_memory/company.md` — Perfil da Sucesso Imóvel
 
@@ -36,8 +36,8 @@ python3 -c "import base64; data = open('output/{run-id}/Lead-Magnets/lead-magnet
 
 ## Estrutura de Output
 
-Um arquivo salvo na raiz do run:
-- `output/{run-id}/dashboard-semanal-{slug}.html`
+Um arquivo salvo na pasta Dashboard do run:
+- `output/{run-id}/Dashboard/dashboard-semanal-{slug}.html`
 
 ## Instructions
 
@@ -47,7 +47,7 @@ Gerar um HTML 100% auto-suficiente com design Premium Dark da Sucesso Imóvel. *
 
 Preencher o bloco `source-card` logo abaixo do header:
 
-1. **Tipo de origem** — ler `youtube-focus.md` e identificar `source_type`:
+1. **Tipo de origem** — ler `v1/youtube-focus.md` e identificar `source_type`:
    - `youtube` → classe `source-badge.youtube`, label "YouTube"
    - `local` → classe `source-badge.local`, label "Vídeo Local"
    - `document` → classe `source-badge.document`, label "Documento"

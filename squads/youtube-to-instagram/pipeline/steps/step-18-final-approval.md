@@ -27,10 +27,6 @@ Todos os entregáveis do ciclo estão disponíveis em `output/{run-id}/`.
 
 ## Arquivos gerados neste ciclo
 
-### `output/{run-id}/v1/`
-- `doc-source-analysis.md` — Relatório completo do vídeo (8 seções)
-- `doc-source-analysis.html` — Versão visual do relatório
-
 ### `output/{run-id}/Lead-Magnets/`
 - `lead-magnet-{PALAVRA}-{slug}.md` — Conteúdo da isca digital
 - `lead-magnet-{PALAVRA}-{slug}.html` — HTML intermediário
@@ -47,10 +43,12 @@ Todos os entregáveis do ciclo estão disponíveis em `output/{run-id}/`.
 - `stories-semana-{slug}.html` — HTML semanal unificado
 
 ### `output/{run-id}/Prompts/`
-- `ai-image-prompt-post2.md` — Prompt de imagem IA para o Qua-PU2
 - `media-prompts.md` — 3 prompts Imagen (Alerta, Dado, Reflexão)
 
 ### `output/{run-id}/Posts/`
+- `selected-jeorge-photo.md` — Foto do Dr. Jeorge usada no Ter-PU1
+- `ai-image-prompt-post2.md` — Prompt de imagem IA para o Qua-PU2
+- `ai-image-2.jpg` — Imagem IA gerada para o Qua-PU2
 - `post-content.md` — Conteúdo dos 5 posts (Seg-CT, Ter-PU1, Qua-PU2, Qui-PU3, Sex-CCTA)
 - `post-content.html` — Brief visual dos 5 posts
 - `{slug}-single-post-1.png` — Ter-PU1 (1080×1350)
@@ -61,6 +59,13 @@ Todos os entregáveis do ciclo estão disponíveis em `output/{run-id}/`.
 
 ### `output/{run-id}/_html/`
 - HTMLs de renderização intermediária de todos os posts e carrosséis
+
+### `output/{run-id}/v1/`
+- `doc-source-analysis.md` — Relatório completo do vídeo (8 seções)
+- `doc-source-analysis.html` — Versão visual do relatório
+- `approved-ideas.md` — Ideias de posts aprovadas
+- `video-transcript.md` — Transcrição ou conteúdo extraído
+- `youtube-focus.md` — Fonte e foco do conteúdo selecionado
 
 ### `output/{run-id}/`
 - `review.md` — Relatório de qualidade de Renata

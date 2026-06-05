@@ -155,7 +155,22 @@ Hashtags temáticas geradas por IA (ex: #contratonulo, #prazoscontrato, #checkli
 ## Técnico (específico do squad)
 
 - Nome da pasta de output: `YYYY-MM-DD-HHmmss-tema-slug` (data + hora + 1 a 3 palavras do tema em kebab-case).
-- Estrutura de subpastas obrigatória: `Posts/` para imagens, PNGs **e** `post-content.md`; `Roteiros/` para scripts de vídeo; `Prompts/` para prompts Imagen (nano-banana) — dois arquivos: `media-prompts.md` e `media-prompts.html`.
+- **Estrutura completa de subpastas obrigatória:**
+
+| Pasta | Conteúdo |
+|---|---|
+| `v1/` | `youtube-focus.md`, `video-transcript.md`, `doc-source-analysis.md`, `doc-source-analysis.html`, `post-ideas.md`, `lead-magnet-ideas.md`, `approved-ideas.md`, `review.md` |
+| `Posts/` | `post-content.md`, `post-content.html`, `selected-jeorge-photo.md`, `ai-image-prompt-post2.md`, `ai-image-2.jpg`, `ai-image-2-test.jpg`, todos os PNGs finais |
+| `Prompts/` | `media-prompts.md`, `media-prompts.html` |
+| `Roteiros/` | roteiro YouTube, roteiros Reels, roteiros Stories HTMLs |
+| `Stories/` | arquivos MD de stories diários |
+| `Lead-Magnets/` | HTML e PDF da isca digital |
+| `Dashboard/` | `dashboard-semanal-{slug}.html` |
+| `_html/` | HTMLs intermediários de renderização dos posts |
+| `_scripts/` | scripts auxiliares gerados durante a execução (ex: `render-posts.mjs`) |
+
+- Arquivos soltos na raiz do run-id: apenas `state.json` (gerenciado pelo pipeline runner — não mover).
+- Caminhos relativos no dashboard para `Lead-Magnets/` devem usar `../Lead-Magnets/` (um nível acima da pasta `Dashboard/`).
 - **Prompts Imagen (step 14):** 3 prompts nomeados e derivados diretamente dos posts correspondentes:
   - `01-Ter-PU1` — derivado do post Ter-PU1 (headline e body text)
   - `02-Qua-PU2` — derivado do post Qua-PU2 (headline e body text)

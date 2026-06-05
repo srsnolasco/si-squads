@@ -54,7 +54,7 @@ Os arquivos são separados em duas pastas:
    Salvar o resultado na variável `SLUG`. Exemplo: run-id `2026-05-13-201921-definicao-de-posse` → `SLUG=definicao-de-posse`.
 3. Obter base64 do logo branco: `python3 -c "import base64; data = open('assets/imagens/logos/SI-Logo-Branco-Transp.png','rb').read(); print(base64.b64encode(data).decode())"` — salvar na variável `LOGO_B64`.
 4. Obter base64 do logo colorido (para Post 3, fundo claro): `python3 -c "import base64; data = open('assets/imagens/logos/SI-Logo-Color-Transp.png','rb').read(); print(base64.b64encode(data).decode())"` — salvar na variável `LOGO_COLOR_B64`.
-5. Ler `output/{run-id}/selected-jeorge-photo.md` para saber qual foto usar no Ter-PU1 — extrair o campo `Arquivo:`.
+5. Ler `output/{run-id}/Posts/selected-jeorge-photo.md` para saber qual foto usar no Ter-PU1 — extrair o campo `Arquivo:`.
 6. Iniciar servidor HTTP apontando para `_html/`: `python3 -m http.server 8765 --directory "{absolute_path}/_html/" &`
 
 ---
@@ -62,7 +62,7 @@ Os arquivos são separados em duas pastas:
 ### Tarefa 1: Ter-PU1 — Roxo (com foto Dr. Jeorge)
 
 1. Ler o template `_templates/single-post-template.html`.
-2. Ler `output/{run-id}/selected-jeorge-photo.md` — extrair o campo `Arquivo:`.
+2. Ler `output/{run-id}/Posts/selected-jeorge-photo.md` — extrair o campo `Arquivo:`.
    Obter base64: `python3 -c "import base64; data = open('/Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imagens/fotos-ceo/{nome-arquivo}','rb').read(); print(base64.b64encode(data).decode())"`
 3. Substituir todos os placeholders `{{...}}` com o conteúdo do post-content.md.
    - `{{LOGO_B64}}` → LOGO_B64
@@ -81,21 +81,21 @@ Os arquivos são separados em duas pastas:
 
 #### 2a. Gerar imagem com image-ai-generator
 
-1. Ler o arquivo `output/{run-id}/ai-image-prompt-post2.md` para extrair o prompt em inglês. Ao usar o prompt, **sempre acrescentar ao final**: `absolutely no text, no words, no letters, no signs, no stamps anywhere in the image — purely visual, zero typography` — mesmo que o prompt já contenha essa instrução, reforçar sempre.
-2. Verificar se já existe imagem gerada: `output/{run-id}/ai-image-2.png` ou `output/{run-id}/ai-image-2.jpg`.
+1. Ler o arquivo `output/{run-id}/Prompts/ai-image-prompt-post2.md` para extrair o prompt em inglês. Ao usar o prompt, **sempre acrescentar ao final**: `absolutely no text, no words, no letters, no signs, no stamps anywhere in the image — purely visual, zero typography` — mesmo que o prompt já contenha essa instrução, reforçar sempre.
+2. Verificar se já existe imagem gerada: `output/{run-id}/Posts/ai-image-2.png` ou `output/{run-id}/Posts/ai-image-2.jpg`.
    - Se existir: pular para o passo 2b diretamente.
    - Se não existir: gerar em **modo test** primeiro:
      ```bash
      source .env && python3 skills/image-ai-generator/scripts/generate.py \
        --prompt "{prompt extraído do ai-image-prompt-post2.md}" \
-       --output "squads/youtube-to-instagram/output/{run-id}/ai-image-2-test.jpg" \
+       --output "squads/youtube-to-instagram/output/{run-id}/Posts/ai-image-2-test.jpg" \
        --mode test
      ```
 3. Verificar visualmente a imagem test gerada. Se composição e tema estiverem adequados:
    ```bash
    source .env && python3 skills/image-ai-generator/scripts/generate.py \
      --prompt "{mesmo prompt}" \
-     --output "squads/youtube-to-instagram/output/{run-id}/ai-image-2.jpg" \
+     --output "squads/youtube-to-instagram/output/{run-id}/Posts/ai-image-2.jpg" \
      --mode production
    ```
 4. Se a geração falhar (ex: OPENROUTER_API_KEY ausente ou erro de API): usar placeholder CSS e registrar aviso — **não bloquear o pipeline**.
@@ -103,9 +103,9 @@ Os arquivos são separados em duas pastas:
 #### 2b. Renderizar Post 2
 
 1. Ler o template `_templates/single-post-2-template.html`.
-2. Obter base64 da imagem gerada `output/{run-id}/ai-image-2.jpg` (ou `ai-image-2.png`):
+2. Obter base64 da imagem gerada `output/{run-id}/Posts/ai-image-2.jpg` (ou `Posts/ai-image-2.png`):
    ```bash
-   python3 -c "import base64; data = open('squads/youtube-to-instagram/output/{run-id}/ai-image-2.jpg','rb').read(); print(base64.b64encode(data).decode())"
+   python3 -c "import base64; data = open('squads/youtube-to-instagram/output/{run-id}/Posts/ai-image-2.jpg','rb').read(); print(base64.b64encode(data).decode())"
    ```
    - Se nenhuma imagem existir: usar placeholder SVG/gradiente escuro como fallback.
 3. Substituir todos os placeholders com o conteúdo do post-content.md.

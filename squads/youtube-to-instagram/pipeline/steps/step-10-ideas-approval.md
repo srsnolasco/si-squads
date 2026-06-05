@@ -1,7 +1,7 @@
 ---
 type: checkpoint
 inputFile: squads/youtube-to-instagram/output/{run-id}/post-ideas.md
-outputFile: squads/youtube-to-instagram/output/{run-id}/approved-ideas.md
+outputFile: squads/youtube-to-instagram/output/{run-id}/v1/approved-ideas.md
 ---
 
 # Step 10: Aprovação das Ideias + Seleção de Foto
@@ -36,7 +36,7 @@ ls /Users/sandronolasco/Antigravity/Projetos/SucessoImovel/si-squads/assets/imag
 
 Apresentar as opções disponíveis com base no resultado acima. Usar `AskUserQuestion` com as fotos como opções dinâmicas.
 
-Salvar a escolha em `output/{run-id}/selected-jeorge-photo.md`:
+Salvar a escolha em `output/{run-id}/Posts/selected-jeorge-photo.md`:
 
 ```markdown
 # Foto Dr. Jeorge Selecionada

@@ -2,7 +2,7 @@
 type: agent
 agent: iago-instagram
 execution: inline
-inputFile: squads/youtube-to-instagram/output/{run-id}/approved-ideas.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/v1/approved-ideas.md
 outputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 ---
 
@@ -13,8 +13,8 @@ Iago Instagram transforma as ideias aprovadas em conteúdo completo para **5 pos
 ## Context Loading
 
 Antes de iniciar, Iago deve carregar:
-- `squads/youtube-to-instagram/output/{run-id}/approved-ideas.md` — Ideias aprovadas pelo usuário
-- `squads/youtube-to-instagram/output/{run-id}/selected-jeorge-photo.md` — Foto do Dr. Jeorge selecionada no step 10 (**usar exatamente este arquivo no Ter-PU1**)
+- `squads/youtube-to-instagram/output/{run-id}/v1/approved-ideas.md` — Ideias aprovadas pelo usuário
+- `squads/youtube-to-instagram/output/{run-id}/Posts/selected-jeorge-photo.md` — Foto do Dr. Jeorge selecionada no step 10 (**usar exatamente este arquivo no Ter-PU1**)
 - `squads/youtube-to-instagram/output/{run-id}/v1/doc-source-analysis.md` — Análise completa do vídeo
 - `squads/youtube-to-instagram/output/{run-id}/lead-magnet-ideas.md` — Isca digital aprovada (**obrigatório para o Sex-CCTA — extrair título, descrição e palavra do CTA**)
 - `squads/youtube-to-instagram/pipeline/data/tone-of-voice.md` — Guia de tons de voz
@@ -72,7 +72,7 @@ O squad produz **5 posts** a cada run:
 - **Template:** `_templates/single-post-2-template.html`
 - **Eyebrow:** (ex: "Impacto Prático")
 - **Tag:** área + tema
-- **Prompt para imagem IA:** criar um prompt em inglês para gerar a imagem via nano banana / DALL-E. O prompt deve descrever uma cena visual abstrata ou metáfora visual que represente o tema (ex: para STJ Tema 1.266 — "a padlock overlapping a real estate building, dark cinematic lighting, professional photography, abstract concept of legal protection"). **OBRIGATÓRIO: finalizar SEMPRE com** `absolutely no text, no words, no letters, no signs, no stamps, no labels anywhere in the image — purely visual, zero typography`. Salvar o prompt em `output/{run-id}/ai-image-prompt-post2.md`.
+- **Prompt para imagem IA:** criar um prompt em inglês para gerar a imagem via nano banana / DALL-E. O prompt deve descrever uma cena visual abstrata ou metáfora visual que represente o tema (ex: para STJ Tema 1.266 — "a padlock overlapping a real estate building, dark cinematic lighting, professional photography, abstract concept of legal protection"). **OBRIGATÓRIO: finalizar SEMPRE com** `absolutely no text, no words, no letters, no signs, no stamps, no labels anywhere in the image — purely visual, zero typography`. Salvar o prompt em `output/{run-id}/Prompts/ai-image-prompt-post2.md`.
 
 #### Qui-PU3 — Só texto | Ângulo: Reflexão/Princípio
 
@@ -148,7 +148,7 @@ Data: {YYYY-MM-DD}
 **Body text:** {HTML}
 **Badge text:** {texto}
 **CTA text:** {deve ser pedido de like}
-**Prompt IA (nano banana):** ver output/{run-id}/ai-image-prompt-post2.md
+**Prompt IA (nano banana):** ver output/{run-id}/Prompts/ai-image-prompt-post2.md
 **Tom de voz:** {tom escolhido}
 
 ### Legenda
@@ -218,7 +218,7 @@ Data: {YYYY-MM-DD}
 - [ ] Qui-PU3: CTA é pedido para seguir no Instagram mencionando a Sucesso Imóvel pelo nome
 - [ ] Sex-CCTA: CTA usa "Comenta [PALAVRA]" — PALAVRA idêntica à registrada em `lead-magnet-ideas.md`
 - [ ] Sex-CCTA: sem "link na bio" ou "arrasta pra cima" no CTA
-- [ ] Qua-PU2: prompt para imagem IA salvo em `output/{run-id}/ai-image-prompt-post2.md`
+- [ ] Qua-PU2: prompt para imagem IA salvo em `output/{run-id}/Prompts/ai-image-prompt-post2.md`
 - [ ] Quote text do Qui-PU3 é impactante e curto (máx. 2 frases)
 - [ ] Todos os hooks têm no máximo 125 caracteres
 - [ ] Body text do Qua-PU2 tem no máximo 120 caracteres (contados) — frase completa, sem corte
