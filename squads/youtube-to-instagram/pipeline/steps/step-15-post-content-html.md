@@ -2,7 +2,7 @@
 type: agent
 agent: iago-instagram
 execution: inline
-inputFile: squads/youtube-to-instagram/output/Posts/post-content.md
+inputFile: squads/youtube-to-instagram/output/{run-id}/Posts/post-content.md
 outputFile: squads/youtube-to-instagram/output/Posts/post-content.html
 ---
 

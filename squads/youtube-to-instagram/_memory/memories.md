@@ -8,7 +8,6 @@
 
 ## Design Visual
 
-- Seta de arraste no carrossel: formato "← ARRASTE" (seta à ESQUERDA da palavra, não à direita).
 - Logo real da Sucesso Imóvel deve aparecer no header de todos os slides (usar versão branca para fundos escuros). Tamanho: 92px de altura.
 - Fundo Premium Dark: `linear-gradient(155deg, #0C0018 0%, #1A0A2E 40%, #0A0A0A 100%)`.
 
@@ -104,7 +103,7 @@ Aprovado em: 2026-06-04 (versão definitiva — aprovada pelo usuário)
 - Accent line topo: `height:3px; background:linear-gradient(90deg,transparent,#7B2FBE,#A855F7,transparent)`
 
 **Header (todos os slides):**
-- Logo branco (`SI-Logo-Branco-Transp.png`) base64, `height:150px`, header `justify-content:flex-start` — logo alinhado à **esquerda**
+- Logo branco (`SI-Logo-Branco-Transp.png`) base64, `height:112px`, header `justify-content:center` — logo **centralizado**
 - Tag: `position:absolute; top:44px; right:72px; border-radius:100px; font-size:26px; font-weight:600; color:#A855F7; padding:13px 30px`
 
 **Tipografia e espaçamento:**

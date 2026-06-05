@@ -10,6 +10,8 @@ outputFile: squads/youtube-to-instagram/output/{run-id}/Prompts/media-prompts.md
 
 Iago cria **3 prompts para geração de posts completos no Google Imagen (nano-banana)**.
 
+> **Nota:** estes prompts (`media-prompts.md`) são diferentes do `ai-image-prompt-post2.md` criado no step 11. Aquele gera apenas a imagem de fundo do Qua-PU2 para Diego usar no design. Estes geram posts Instagram inteiros com headline e sub-headline escritas na imagem.
+
 Cada prompt gera uma imagem de Instagram pronta — com design, **texto em português legível** (headline + sub-headline) e identidade visual da Sucesso Imóvel embutidos na própria imagem. O texto precisa APARECER e COMUNICAR — não é apenas background visual.
 
 ## Context Loading
@@ -93,7 +95,7 @@ O prompt deve conter obrigatoriamente estas seções, nesta ordem:
 
 A legenda de **todos** os posts gerados neste step deve encerrar com este CTA fixo, sem alterações:
 
-> Gostou do conteúdo? Deixe o seu like! É rapidinho e ajuda muito a gente na criação de mais conteúdo ❤️
+> Gostou do conteúdo? Deixe o seu like! É rapidinho e ajuda muito a gente na criação de mais conteúdo.
 
 ---
 
@@ -183,7 +185,7 @@ Salvar em `output/{run-id}/Prompts/media-prompts.html`.
 - [ ] Apenas headline e sub-headline como texto na imagem — badge, tag, card e botão são proibidos
 - [ ] Layout segue identidade visual da Sucesso Imóvel (dark background, roxo accent, sem logo)
 - [ ] Legenda e hashtags incluídas para cada post, copiadas do post-content.md
-- [ ] CTA de todos os posts encerra com o texto fixo: "Gostou do conteúdo? Deixe o seu like! É rapidinho e ajuda muito a gente na criação de mais conteúdo ❤️"
+- [ ] CTA de todos os posts encerra com o texto fixo: "Gostou do conteúdo? Deixe o seu like! É rapidinho e ajuda muito a gente na criação de mais conteúdo."
 - [ ] Hashtags são exatamente as 6 oficiais — sem adições ou substituições
 - [ ] `media-prompts.md` salvo em `output/{run-id}/Prompts/`
 - [ ] `media-prompts.html` salvo em `output/{run-id}/Prompts/` — auto-suficiente, design Premium Dark
