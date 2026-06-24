@@ -68,11 +68,11 @@ Os arquivos são separados em duas pastas:
    - `{{LOGO_B64}}` → LOGO_B64
    - `{{JEORGE_B64}}` → base64 da foto
    - `{{TAG}}`, `{{EYEBROW}}`, `{{HEADLINE}}`, `{{BODY_TEXT}}`, `{{BADGE_TEXT}}`, `{{CTA_TEXT}}`
-4. Salvar como `_html/{SLUG}-single-post-1.html`.
+4. Salvar como `_html/{SLUG}-03-Ter-PU1.html`.
 5. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-1.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-03-Ter-PU1.html`
    - `browser_resize` → 1080 × 1350
-   - `browser_take_screenshot` → `Posts/{SLUG}-single-post-1.png`
+   - `browser_take_screenshot` → `Posts/{SLUG}-03-Ter-PU1.png`
 6. Verificar visualmente: logo legível (92px), headline completa sem truncamento, card centralizado, CTA proeminente.
 
 ---
@@ -82,7 +82,7 @@ Os arquivos são separados em duas pastas:
 #### 2a. Gerar imagem com image-ai-generator
 
 1. Ler o arquivo `output/{run-id}/Prompts/ai-image-prompt-post2.md` para extrair o prompt em inglês. Ao usar o prompt, **sempre acrescentar ao final**: `absolutely no text, no words, no letters, no signs, no stamps anywhere in the image — purely visual, zero typography` — mesmo que o prompt já contenha essa instrução, reforçar sempre.
-2. Verificar se já existe imagem gerada: `output/{run-id}/Posts/ai-image-2.png` ou `output/{run-id}/Posts/ai-image-2.jpg`.
+2. Verificar se já existe imagem gerada: `output/{run-id}/Posts/ai-image-2.jpg`.
    - Se existir: pular para o passo 2b diretamente.
    - Se não existir: gerar em **modo test** primeiro:
      ```bash
@@ -103,17 +103,17 @@ Os arquivos são separados em duas pastas:
 #### 2b. Renderizar Post 2
 
 1. Ler o template `_templates/single-post-2-template.html`.
-2. Obter base64 da imagem gerada `output/{run-id}/Posts/ai-image-2.jpg` (ou `Posts/ai-image-2.png`):
+2. Obter base64 da imagem gerada `output/{run-id}/Posts/ai-image-2.jpg`:
    ```bash
    python3 -c "import base64; data = open('squads/youtube-to-instagram/output/{run-id}/Posts/ai-image-2.jpg','rb').read(); print(base64.b64encode(data).decode())"
    ```
    - Se nenhuma imagem existir: usar placeholder SVG/gradiente escuro como fallback.
 3. Substituir todos os placeholders com o conteúdo do post-content.md.
-4. Salvar como `_html/{SLUG}-single-post-2.html`.
+4. Salvar como `_html/{SLUG}-04-Qua-PU2.html`.
 5. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-2.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-04-Qua-PU2.html`
    - `browser_resize` → 1080 × 1350
-   - `browser_take_screenshot` → `Posts/{SLUG}-single-post-2.png`
+   - `browser_take_screenshot` → `Posts/{SLUG}-04-Qua-PU2.png`
 6. Verificar: imagem hero visível (IA ou placeholder), headline legível, card com body text, CTA pede like.
 
 ---
@@ -124,11 +124,11 @@ Os arquivos são separados em duas pastas:
 2. Substituir todos os placeholders com o conteúdo do post-content.md (campos do Qui-PU3).
    - `{{LOGO_B64}}` → **LOGO_COLOR_B64** (logo colorido — fundo claro!)
    - Incluir `{{QUOTE_TEXT}}` com o texto de destaque.
-3. Salvar como `_html/{SLUG}-single-post-3.html`.
+3. Salvar como `_html/{SLUG}-05-Qui-PU3.html`.
 4. Renderizar:
-   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-single-post-3.html`
+   - `browser_navigate` → `http://localhost:8765/_html/{SLUG}-05-Qui-PU3.html`
    - `browser_resize` → 1080 × 1350
-   - `browser_take_screenshot` → `Posts/{SLUG}-single-post-3.png`
+   - `browser_take_screenshot` → `Posts/{SLUG}-05-Qui-PU3.png`
 5. Verificar: layout 100% tipográfico, quote box destacado, CTA pede para seguir.
 
 ---
@@ -176,10 +176,10 @@ Os arquivos são separados em duas pastas:
    e. **Conteúdo:** iniciar em `top: 220px`
    f. **Botão ARRASTE:** `← ARRASTE` (seta à ESQUERDA), mesmo estilo do Seg-CT
    g. **Slide CTA (último):** "Comenta [PALAVRA] aqui embaixo e receba [referência genérica ao material]" — PALAVRA extraída de `lead-magnet-ideas.md`
-   h. Salvar como `_html/{SLUG}-ccta-slide-01.html`, `_html/{SLUG}-ccta-slide-02.html`, etc.
+   h. Salvar como `_html/{SLUG}-06-Sex-CCTA-slide-01.html`, `_html/{SLUG}-06-Sex-CCTA-slide-02.html`, etc.
 5. Renderizar cada slide:
    - `browser_resize` → 1080 × 1440
-   - `browser_take_screenshot` → `Posts/{SLUG}-ccta-slide-01.png`, etc.
+   - `browser_take_screenshot` → `Posts/{SLUG}-06-Sex-CCTA-slide-01.png`, etc.
 6. Verificar slide 1 antes de continuar o batch.
 
 ---
@@ -229,7 +229,7 @@ HTMLs de renderização salvos em output/{run-id}/_html/:
 - [ ] Post 3: template branco/lavanda, 100% tipográfico, quote box presente, **logo colorido**, CTA pede seguir
 - [ ] Seg-CT: logo 112px centralizado, eyebrow 30px, conteúdo top:220px, botão `← ARRASTE` estilo transparente branco, slides 1080×1440
 - [ ] Seg-CT: slides alternam var-a → var-b → var-c → var-a…; capa e CTA sempre var-a
-- [ ] Sex-CCTA: mesmo padrão visual do Seg-CT, CTA do último slide usa palavra extraída de `lead-magnet-ideas.md`, arquivos nomeados com prefixo `-ccta-slide-`
+- [ ] Sex-CCTA: mesmo padrão visual do Seg-CT, CTA do último slide usa palavra extraída de `lead-magnet-ideas.md`, arquivos nomeados com prefixo `-06-Sex-CCTA-slide-`
 - [ ] Sex-CCTA: slides alternam var-a → var-b → var-c → var-a…; capa e CTA sempre var-a
 - [ ] Todos os posts únicos: 1080×1350
 - [ ] Card de conteúdo centralizado (bottom: 240px) em todos os posts únicos

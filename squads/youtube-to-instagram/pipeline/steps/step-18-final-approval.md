@@ -43,19 +43,19 @@ Todos os entregáveis do ciclo estão disponíveis em `output/{run-id}/`.
 - `stories-semana-{slug}.html` — HTML semanal unificado
 
 ### `output/{run-id}/Prompts/`
+- `ai-image-prompt-post2.md` — Prompt de imagem IA para o Qua-PU2 (gerado no step 11)
 - `media-prompts.md` — 3 prompts Imagen (Alerta, Dado, Reflexão)
 
 ### `output/{run-id}/Posts/`
 - `selected-jeorge-photo.md` — Foto do Dr. Jeorge usada no Ter-PU1
-- `ai-image-prompt-post2.md` — Prompt de imagem IA para o Qua-PU2
 - `ai-image-2.jpg` — Imagem IA gerada para o Qua-PU2
 - `post-content.md` — Conteúdo dos 5 posts (Seg-CT, Ter-PU1, Qua-PU2, Qui-PU3, Sex-CCTA)
 - `post-content.html` — Brief visual dos 5 posts
-- `{slug}-single-post-1.png` — Ter-PU1 (1080×1350)
-- `{slug}-single-post-2.png` — Qua-PU2 (1080×1350)
-- `{slug}-single-post-3.png` — Qui-PU3 (1080×1350)
-- `{slug}-slide-01.png` a `{slug}-slide-NN.png` — Seg-CT (1080×1440)
-- `{slug}-ccta-slide-01.png` a `{slug}-ccta-slide-NN.png` — Sex-CCTA (1080×1440)
+- `{slug}-03-Ter-PU1.png` — Ter-PU1 (1080×1350)
+- `{slug}-04-Qua-PU2.png` — Qua-PU2 (1080×1350)
+- `{slug}-05-Qui-PU3.png` — Qui-PU3 (1080×1350)
+- `{slug}-02-Seg-CT-slide-01.png` a `{slug}-02-Seg-CT-slide-NN.png` — Seg-CT (1080×1440)
+- `{slug}-06-Sex-CCTA-slide-01.png` a `{slug}-06-Sex-CCTA-slide-NN.png` — Sex-CCTA (1080×1440)
 
 ### `output/{run-id}/_html/`
 - HTMLs de renderização intermediária de todos os posts e carrosséis

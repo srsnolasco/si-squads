@@ -73,6 +73,7 @@ O squad produz **5 posts** a cada run:
 - **Eyebrow:** (ex: "Impacto Prático")
 - **Tag:** área + tema
 - **Prompt para imagem IA:** criar um prompt em inglês para gerar a imagem via nano banana / DALL-E. O prompt deve descrever uma cena visual abstrata ou metáfora visual que represente o tema (ex: para STJ Tema 1.266 — "a padlock overlapping a real estate building, dark cinematic lighting, professional photography, abstract concept of legal protection"). **OBRIGATÓRIO: finalizar SEMPRE com** `absolutely no text, no words, no letters, no signs, no stamps, no labels anywhere in the image — purely visual, zero typography`. Salvar o prompt em `output/{run-id}/Prompts/ai-image-prompt-post2.md`.
+  > **Nota:** este arquivo é o prompt visual para Diego gerar a imagem de fundo do Qua-PU2 no step 16. É diferente dos prompts do step 14 (`media-prompts.md`), que geram posts Instagram completos com texto. `ai-image-prompt-post2.md` deve ser criado aqui no step 11 e deve conter apenas o prompt em inglês, sem headline nem legenda.
 
 #### Qui-PU3 — Só texto | Ângulo: Reflexão/Princípio
 
